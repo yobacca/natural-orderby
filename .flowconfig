@@ -1,0 +1,12 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/.*
+<PROJECT_ROOT>/dist/.*
+<PROJECT_ROOT>/lib/.*
+<PROJECT_ROOT>/docs/.*
+
+[include]
+
+[libs]
+
+[options]
+suppress_comment=.*\\$FlowInvalidInputTest

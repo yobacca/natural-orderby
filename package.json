@@ -1,0 +1,110 @@
+{
+  "name": "natural-orderby",
+  "version": "1.0.0",
+  "description": "Lightweight and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.",
+  "main": "lib/index.js",
+  "module": "dist/natural-orderby.es.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yobacca/natural-orderby.git"
+  },
+  "scripts": {
+    "build": "npm run build:lib && npm run build:dist && npm run build:flow",
+    "prebuild:dist": "rimraf dist",
+    "build:dist": "rollup -c",
+    "prebuild:lib": "rimraf lib",
+    "build:lib": "cross-env NODE_ENV=cjs babel src --out-dir lib --ignore test.js",
+    "build:flow": "flow-copy-source -v -i '**/__tests__/*.js' src lib",
+    "docs": "docsify serve docs",
+    "lint": "eslint src",
+    "flow": "flow check",
+    "test": "cross-env TZ=UTC jest src",
+    "prepublish": "npm run build",
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -E GIT_PARAMS"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
+  "keywords": [
+    "sort",
+    "order",
+    "string",
+    "natsort",
+    "natcmp",
+    "compare",
+    "alphanum",
+    "unicode",
+    "date",
+    "number",
+    "float",
+    "numeric",
+    "natural",
+    "human",
+    "javascript",
+    "array",
+    "collection",
+    "list",
+    "sorting",
+    "case sensitive",
+    "case insensitive",
+    "ascending",
+    "descending",
+    "browser",
+    "node.js",
+    "node"
+  ],
+  "author": "Olaf Ennen <olaf.ennen@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yobacca/natural-orderby/issues"
+  },
+  "homepage": "https://github.com/yobacca/natural-orderby",
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^8.0.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "cross-env": "^5.2.0",
+    "docsify-cli": "^4.2.1",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-config-prettier": "^2.4.0",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0",
+    "flow-bin": "^0.75.0",
+    "flow-copy-source": "^2.0.0",
+    "husky": "^0.14.3",
+    "jest": "^23.0.0",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.6.1",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.61.1",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-terser": "^1.0.1",
+    "rollup-plugin-uglify": "^4.0.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": "^8.10.0 || >=9.10.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "presets": [["env", { "loose": true, "modules": false }]],
+  "plugins": ["transform-object-rest-spread", "transform-flow-strip-types"],
+  "env": {
+    "cjs": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
+}

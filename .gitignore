@@ -1,0 +1,21 @@
+# editors
+.idea
+.vscode
+
+# library
+node_modules/
+
+# coverage
+coverage/
+
+# macOS
+.DS_Store
+
+# generated files
+dist/
+lib/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
