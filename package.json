@@ -1,6 +1,6 @@
 {
   "name": "natural-orderby",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.",
   "main": "lib/index.js",
   "module": "dist/natural-orderby.es.js",
@@ -61,7 +61,7 @@
   "bugs": {
     "url": "https://github.com/yobacca/natural-orderby/issues"
   },
-  "homepage": "https://github.com/yobacca/natural-orderby",
+  "homepage": "https://yobacca.github.io/natural-orderby",
   "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
