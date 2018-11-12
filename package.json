@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "Lightweight and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "module": "dist/natural-orderby.es.js",
   "repository": {
     "type": "git",
