@@ -291,6 +291,13 @@ describe('baseOrderBy()', () => {
           expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
+      describe('numerics with leading zeros and prefixed by a character', () => {
+        const origArray = ['A110', 'A100', 'A090', 'A200', 'A50'];
+        const sortArray = ['A50', 'A090', 'A100', 'A110', 'A200'];
+        it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
+        });
+      });
       describe('number first', () => {
         const origArray = [
           '5D',
