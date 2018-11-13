@@ -7,8 +7,8 @@ const compareMultiple = (
   recordB: MappedRecord,
   orders: $ReadOnlyArray<Order>
 ): number => {
-  const { values: valuesA } = recordA;
-  const { values: valuesB } = recordB;
+  const { index: indexA, values: valuesA } = recordA;
+  const { index: indexB, values: valuesB } = recordB;
   const { length } = valuesA;
   const ordersLength = orders.length;
   for (let i = 0; i < length; i++) {
@@ -25,7 +25,7 @@ const compareMultiple = (
       }
     }
   }
-  return 0;
+  return indexA - indexB;
 };
 
 export default compareMultiple;

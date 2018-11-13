@@ -26,7 +26,7 @@ describe('compareMultiple()', () => {
       };
       expect(compareMultiple(recordA, recordB, [])).toBeLessThan(0);
     });
-    it('should call compareValues() and return result without changing order (0)', () => {
+    it('should call compareValues() and return result without changing order (-1)', () => {
       const recordA = {
         index: 0,
         values: [
@@ -47,7 +47,7 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, [])).toBe(0);
+      expect(compareMultiple(recordA, recordB, [])).toBeLessThan(0);
     });
     it('should call compareValues() and return result without changing order (1)', () => {
       const recordA = {
@@ -97,7 +97,7 @@ describe('compareMultiple()', () => {
       };
       expect(compareMultiple(recordA, recordB, ['asc'])).toBeLessThan(0);
     });
-    it('should call compareValues() and return result without changing order (0)', () => {
+    it('should call compareValues() and return result without changing order (-1)', () => {
       const recordA = {
         index: 0,
         values: [
@@ -118,7 +118,7 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['asc'])).toBe(0);
+      expect(compareMultiple(recordA, recordB, ['asc'])).toBeLessThan(0);
     });
     it('should call compareValues() and return result without changing order (1)', () => {
       const recordA = {
@@ -168,7 +168,7 @@ describe('compareMultiple()', () => {
       };
       expect(compareMultiple(recordA, recordB, ['desc'])).toBeGreaterThan(0);
     });
-    it('should call compareValues() and return result without changing (0)', () => {
+    it('should call compareValues() and return result without changing (-1)', () => {
       const recordA = {
         index: 0,
         values: [
@@ -189,7 +189,7 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['desc'])).toBe(0);
+      expect(compareMultiple(recordA, recordB, ['desc'])).toBeLessThan(0);
     });
     it('should call compareValues() and return result changed to descending order (-1)', () => {
       const recordA = {
@@ -249,7 +249,7 @@ describe('compareMultiple()', () => {
         0
       );
     });
-    it('should call compareValues() twice and return result without changing order (0)', () => {
+    it('should call compareValues() twice and return result without changing order (-1)', () => {
       const recordA = {
         index: 0,
         values: [
@@ -278,7 +278,9 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['desc', 'asc'])).toBe(0);
+      expect(compareMultiple(recordA, recordB, ['desc', 'asc'])).toBeLessThan(
+        0
+      );
     });
     it('should call compareValues() twice and return result without changing order (1)', () => {
       const recordA = {

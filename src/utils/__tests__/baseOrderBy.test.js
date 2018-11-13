@@ -105,10 +105,10 @@ describe('baseOrderBy()', () => {
       const sortArray = [
         '',
         -1,
-        0,
         false,
-        true,
+        0,
         1,
+        true,
         num,
         124,
         date,
