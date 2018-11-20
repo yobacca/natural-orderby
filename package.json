@@ -81,7 +81,7 @@
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-flowtype": "^3.2.0",
     "eslint-plugin-import": "^2.14.0",
-    "flow-bin": "^0.75.0",
+    "flow-bin": "^0.86.0",
     "flow-copy-source": "^2.0.0",
     "husky": "^1.1.4",
     "jest": "^23.0.0",
