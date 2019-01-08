@@ -1953,8 +1953,8 @@ eslint-module-utils@^2.2.0:
     pkg-dir "^1.0.0"
 
 eslint-plugin-flowtype@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-3.2.0.tgz#824364ed5940a404b91326fdb5a313a2a74760df"
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-3.2.1.tgz#45e032aee54e695dfc41a891e92b7afedfc62c77"
   dependencies:
     lodash "^4.17.10"
 
