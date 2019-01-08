@@ -6,13 +6,7 @@ import { uglify } from 'rollup-plugin-uglify';
 import { terser } from 'rollup-plugin-terser';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 
-const commonPlugins = [
-  nodeResolve(),
-  sourceMaps(),
-  babel({
-    plugins: ['external-helpers'],
-  }),
-];
+const commonPlugins = [nodeResolve(), sourceMaps(), babel()];
 
 const configBase = {
   input: 'src/index.js',
