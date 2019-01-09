@@ -5,6 +5,7 @@ import babel from 'rollup-plugin-babel';
 import { uglify } from 'rollup-plugin-uglify';
 import { terser } from 'rollup-plugin-terser';
 import sourceMaps from 'rollup-plugin-sourcemaps';
+import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 
 const commonPlugins = [nodeResolve(), sourceMaps(), babel()];
 
@@ -39,8 +40,9 @@ const iifeProdConfig = Object.assign({}, iifeBaseConfig, {
     replace({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
+    sizeSnapshot(),
     uglify({
-      sourceMap: true,
+      sourcemap: true,
     }),
   ]),
 });
@@ -60,7 +62,7 @@ const esmProdConfig = Object.assign({}, configBase, esmConfig, {
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     terser({
-      sourceMap: true,
+      sourcemap: true,
     })
   ),
 });
