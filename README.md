@@ -1,6 +1,6 @@
 # 🌲 natural-orderby
 
-> Lightweight (~1.7kB gzipped) and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.
+> Lightweight (~1.6kB gzipped) and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.
 
 [![npm](https://img.shields.io/npm/v/natural-orderby.svg)](https://www.npmjs.com/package/natural-orderby)
 [![Build Status](https://travis-ci.org/yobacca/natural-orderby.svg?branch=master)](https://travis-ci.org/yobacca/natural-orderby) [![codecov](https://codecov.io/gh/yobacca/natural-orderby/branch/master/graph/badge.svg)](https://codecov.io/gh/yobacca/natural-orderby) [![dependencies](https://david-dm.org/yobacca/natural-orderby.svg)](https://david-dm.org/yobacca/natural-orderby)
@@ -534,6 +534,10 @@ users.sort((a, b) => compare()(a.lastLogin.ip, b.lastLogin.ip));
 ## Flow Type Definitions
 
 `natural-orderby` has first-class [Flow](https://flow.org/) support with zero configuration to assist you in finding type errors while using our modules.
+
+## TypeScript Declarations
+
+`natural-orderby` has also [TypeScript](https://www.typescriptlang.org/) support and provides TypeScript declarations.
 
 ## Credits
 
