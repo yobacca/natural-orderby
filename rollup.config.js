@@ -3,68 +3,80 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
 import babel from 'rollup-plugin-babel';
 import { uglify } from 'rollup-plugin-uglify';
-import { terser } from 'rollup-plugin-terser';
-import sourceMaps from 'rollup-plugin-sourcemaps';
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 
-const commonPlugins = [nodeResolve(), sourceMaps(), babel()];
+import pkg from './package.json';
 
-const configBase = {
-  input: 'src/index.js',
-  plugins: commonPlugins,
-};
+const input = 'src/index.js';
+const globalName = 'naturalOrderBy';
 
-const iifeBaseConfig = Object.assign({}, configBase, {
-  output: {
-    file: 'dist/natural-orderby.js',
-    format: 'iife',
-    name: 'naturalOrderBy',
-    exports: 'named',
-    sourcemap: true,
+const iife = [
+  {
+    input,
+    output: {
+      file: `iife/${pkg.name}.js`,
+      format: 'iife',
+      name: globalName,
+    },
+    plugins: [
+      nodeResolve(),
+      babel(),
+      replace({
+        'process.env.NODE_ENV': JSON.stringify('development'),
+      }),
+    ],
   },
-});
-
-const iifeConfig = Object.assign({}, iifeBaseConfig, {
-  plugins: iifeBaseConfig.plugins.concat(
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('development'),
-    })
-  ),
-});
-
-const iifeProdConfig = Object.assign({}, iifeBaseConfig, {
-  output: Object.assign({}, iifeBaseConfig.output, {
-    file: 'dist/natural-orderby.min.js',
-  }),
-  plugins: iifeBaseConfig.plugins.concat([
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    sizeSnapshot(),
-    uglify({
-      sourcemap: true,
-    }),
-  ]),
-});
-
-const esmConfig = Object.assign({}, configBase, {
-  output: { file: 'dist/natural-orderby.es.js', format: 'es', sourcemap: true },
-});
-
-const esmProdConfig = Object.assign({}, configBase, esmConfig, {
-  output: {
-    file: 'dist/natural-orderby.es.min.js',
-    format: 'es',
-    sourcemap: true,
+  {
+    input,
+    output: {
+      file: `iife/${pkg.name}.min.js`,
+      format: 'iife',
+      name: globalName,
+    },
+    plugins: [
+      nodeResolve(),
+      babel(),
+      replace({
+        'process.env.NODE_ENV': JSON.stringify('production'),
+      }),
+      sizeSnapshot(),
+      uglify(),
+    ],
   },
-  plugins: esmConfig.plugins.concat(
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    terser({
-      sourcemap: true,
-    })
-  ),
-});
+];
 
-export default [iifeConfig, iifeProdConfig, esmConfig, esmProdConfig];
+const cjs = [
+  {
+    input,
+    output: {
+      file: `cjs/${pkg.name}.js`,
+      format: 'cjs',
+    },
+    plugins: [
+      nodeResolve(),
+      babel(),
+      replace({
+        'process.env.NODE_ENV': JSON.stringify('development'),
+      }),
+    ],
+  },
+];
+
+const esm = [
+  {
+    input,
+    output: { file: `esm/${pkg.name}.js`, format: 'esm' },
+    plugins: [
+      nodeResolve(),
+      babel({
+        runtimeHelpers: true,
+        plugins: [['@babel/transform-runtime', { useESModules: true }]],
+      }),
+      replace({
+        'process.env.NODE_ENV': JSON.stringify('development'),
+      }),
+    ],
+  },
+];
+
+export default [...iife, ...cjs, ...esm];

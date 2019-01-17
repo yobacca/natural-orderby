@@ -2,30 +2,28 @@
   "name": "natural-orderby",
   "version": "1.0.2",
   "description": "Lightweight and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "module": "dist/natural-orderby.es.js",
+  "main": "cjs/natural-orderby.js",
+  "types": "./index.d.ts",
+  "module": "esm/natural-orderby.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/yobacca/natural-orderby.git"
   },
   "scripts": {
-    "build": "npm run build:lib && npm run build:dist && npm run build:flow",
-    "prebuild:dist": "rimraf dist",
-    "build:dist": "rollup -c",
-    "prebuild:lib": "rimraf lib",
-    "build:lib": "cross-env NODE_ENV=cjs babel src --out-dir lib --ignore test.js",
-    "build:flow": "flow-copy-source -v -i '**/__tests__/*.js' src lib",
+    "prebuild": "rimraf iife cjs esm",
+    "build": "rollup -c",
     "docs": "docsify serve docs",
     "lint": "eslint src",
     "flow": "flow check",
     "test": "cross-env TZ=UTC jest src",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "files": [
-    "dist",
-    "lib",
-    "src"
+    "iife",
+    "cjs",
+    "esm",
+    "flow-typed",
+    "index.d.ts"
   ],
   "keywords": [
     "sort",
@@ -67,6 +65,7 @@
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@babel/plugin-transform-flow-strip-types": "^7.2.3",
+    "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.1",
@@ -81,7 +80,6 @@
     "eslint-plugin-flowtype": "^3.2.0",
     "eslint-plugin-import": "^2.14.0",
     "flow-bin": "^0.89.0",
-    "flow-copy-source": "^2.0.0",
     "husky": "^1.1.4",
     "jest": "^23.0.0",
     "lint-staged": "^8.0.5",
@@ -92,8 +90,6 @@
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-replace": "^2.1.0",
     "rollup-plugin-size-snapshot": "^0.7.0",
-    "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-terser": "^4.0.2",
     "rollup-plugin-uglify": "^6.0.0"
   },
   "lint-staged": {
