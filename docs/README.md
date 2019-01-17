@@ -1,6 +1,6 @@
 <h1>natural-orderby</h1>
 
-> Lightweight (~1.7kB gzipped) and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.
+> Lightweight (< 1.6kB gzipped) and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.
 
 [![npm](https://img.shields.io/npm/v/natural-orderby.svg)](https://www.npmjs.com/package/natural-orderby)
 [![Build Status](https://travis-ci.org/yobacca/natural-orderby.svg?branch=master)](https://travis-ci.org/yobacca/natural-orderby) [![codecov](https://codecov.io/gh/yobacca/natural-orderby/branch/master/graph/badge.svg)](https://codecov.io/gh/yobacca/natural-orderby) [![dependencies](https://david-dm.org/yobacca/natural-orderby.svg)](https://david-dm.org/yobacca/natural-orderby)
