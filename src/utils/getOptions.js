@@ -1,24 +1,23 @@
 // @flow
-import type { CompareOptions, BaseCompareOptions } from '../types';
+import type { OrderEnum, CompareOptions, BaseCompareOptions } from '../types';
 
-const defaultOptions: BaseCompareOptions = {
-  caseSensitive: true,
-  order: 'asc',
-};
+const isValidOrder = (value: ?mixed): boolean =>
+  typeof value === 'string' && (value === 'asc' || value === 'desc');
 
 const getOptions = (customOptions?: CompareOptions): BaseCompareOptions => {
-  if (!customOptions || typeof customOptions !== 'object') {
-    return defaultOptions;
+  let order: OrderEnum = 'asc';
+  if (typeof customOptions === 'string' && isValidOrder(customOptions)) {
+    order = customOptions;
+  } else if (
+    customOptions &&
+    typeof customOptions === 'object' &&
+    customOptions.order &&
+    isValidOrder(customOptions.order)
+  ) {
+    ({ order } = customOptions);
   }
   return {
-    caseSensitive:
-      typeof customOptions.caseSensitive === 'boolean'
-        ? customOptions.caseSensitive
-        : defaultOptions.caseSensitive,
-    order:
-      customOptions.order === 'asc' || customOptions.order === 'desc'
-        ? customOptions.order
-        : defaultOptions.order,
+    order,
   };
 };
 

@@ -2,34 +2,21 @@
 import getOptions from '../getOptions';
 
 const defaultOptions = {
-  caseSensitive: true,
   order: 'asc',
 };
 
 describe('getOptions()', () => {
   describe('valid options', () => {
-    it('should return custom options, if both values were properly defined', () => {
-      const customOptions = { caseSensitive: false, order: 'desc' };
+    it('should return custom options, if argument is object', () => {
+      const customOptions = { order: 'desc' };
       const options = getOptions(customOptions);
       const expected = customOptions;
       expect(options).toEqual(expected);
     });
-    it('should return { caseSensitive: false, order: "asc" }', () => {
-      const customOptions = { caseSensitive: false };
+    it('should return custom options, if argument is a string', () => {
+      const customOptions = 'desc';
       const options = getOptions(customOptions);
-      const expected = {
-        ...defaultOptions,
-        ...customOptions,
-      };
-      expect(options).toEqual(expected);
-    });
-    it('should return { caseSensitive: true, order: "desc" }', () => {
-      const customOptions = { order: 'desc' };
-      const options = getOptions(customOptions);
-      const expected = {
-        ...defaultOptions,
-        ...customOptions,
-      };
+      const expected = { order: customOptions };
       expect(options).toEqual(expected);
     });
     it('should return default options, if argument is undefined', () => {
@@ -44,48 +31,6 @@ describe('getOptions()', () => {
     });
   });
   describe('invalid options', () => {
-    it('should return { caseSensitive: true, order: "asc" }', () => {
-      const customOptions = { caseSensitive: 'false' };
-      // $FlowInvalidInputTest
-      const options = getOptions(customOptions);
-      const expected = defaultOptions;
-      expect(options).toEqual(expected);
-    });
-    it('should return { caseSensitive: true, order: "asc" }', () => {
-      const customOptions = { caseSensitive: 1 };
-      // $FlowInvalidInputTest
-      const options = getOptions(customOptions);
-      const expected = defaultOptions;
-      expect(options).toEqual(expected);
-    });
-    it('should return { caseSensitive: true, order: "asc" }', () => {
-      const customOptions = { caseSensitive: {} };
-      // $FlowInvalidInputTest
-      const options = getOptions(customOptions);
-      const expected = defaultOptions;
-      expect(options).toEqual(expected);
-    });
-    it('should return { caseSensitive: true, order: "asc" }', () => {
-      const customOptions = { caseSensitive: () => {} };
-      // $FlowInvalidInputTest
-      const options = getOptions(customOptions);
-      const expected = defaultOptions;
-      expect(options).toEqual(expected);
-    });
-    it('should return { caseSensitive: true, order: "asc" }', () => {
-      const customOptions = { caseSensitive: Symbol() };
-      // $FlowInvalidInputTest
-      const options = getOptions(customOptions);
-      const expected = defaultOptions;
-      expect(options).toEqual(expected);
-    });
-    it('should return { caseSensitive: true, order: "asc" }', () => {
-      const customOptions = { caseSensitive: null };
-      // $FlowInvalidInputTest
-      const options = getOptions(customOptions);
-      const expected = defaultOptions;
-      expect(options).toEqual(expected);
-    });
     it('should return { caseSensitive: true, order: "asc" }', () => {
       const customOptions = { order: 'abc' };
       // $FlowInvalidInputTest
@@ -147,7 +92,7 @@ describe('getOptions()', () => {
       const expected = defaultOptions;
       expect(options).toEqual(expected);
     });
-    it('should return default options, if argument is a string', () => {
+    it('should return default options, if argument is an invalid string', () => {
       // $FlowInvalidInputTest
       const options = getOptions('abc');
       const expected = defaultOptions;
