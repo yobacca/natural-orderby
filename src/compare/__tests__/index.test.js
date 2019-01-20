@@ -1,7 +1,6 @@
 // @flow
 /* eslint-disable global-require */
 const defaultOptions = {
-  caseSensitive: true,
   order: 'asc',
 };
 
@@ -22,21 +21,7 @@ describe('compare()', () => {
     expect(baseCompare).toHaveBeenCalledTimes(1);
     expect(baseCompare).toHaveBeenCalledWith(defaultOptions);
   });
-  it('should call baseCompare() with { caseSensitive: false, order: "asc" } ', () => {
-    const compare = require('..').default;
-    const baseCompare = require('../../utils/baseCompare');
-    const options = {
-      caseSensitive: false,
-    };
-    const expectedOptions = {
-      ...defaultOptions,
-      ...options,
-    };
-    compare(options);
-    expect(baseCompare).toHaveBeenCalledTimes(1);
-    expect(baseCompare).toHaveBeenCalledWith(expectedOptions);
-  });
-  it('should call baseCompare() with { caseSensitive: true, order: "desc" } ', () => {
+  it('should call baseCompare() with { order: "desc" } ', () => {
     const compare = require('..').default;
     const baseCompare = require('../../utils/baseCompare');
     const options = {
@@ -44,20 +29,6 @@ describe('compare()', () => {
     };
     const expectedOptions = {
       ...defaultOptions,
-      ...options,
-    };
-    compare(options);
-    expect(baseCompare).toHaveBeenCalledTimes(1);
-    expect(baseCompare).toHaveBeenCalledWith(expectedOptions);
-  });
-  it('should call baseCompare() with { caseSensitive: false, order: "desc" } ', () => {
-    const compare = require('..').default;
-    const baseCompare = require('../../utils/baseCompare');
-    const options = {
-      caseSensitive: false,
-      order: 'desc',
-    };
-    const expectedOptions = {
       ...options,
     };
     compare(options);

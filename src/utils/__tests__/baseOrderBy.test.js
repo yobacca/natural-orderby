@@ -5,37 +5,15 @@ import baseOrderBy from '../baseOrderBy';
 describe('baseOrderBy()', () => {
   describe('sorting flat arrays', () => {
     describe('character values', () => {
-      it('should order elements ascending and case sensitive', () => {
-        const origArray = ['Fred', 'barney', 'frank', 'Bob'];
-        const sortArray = ['Bob', 'Fred', 'barney', 'frank'];
-        expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
-      });
       it('should order elements ascending and case insensitive', () => {
         const origArray = ['Fred', 'barney', 'frank', 'Bob'];
         const sortArray = ['barney', 'Bob', 'frank', 'Fred'];
-        expect(
-          baseOrderBy(
-            origArray,
-            [v => (typeof v === 'string' && v.toLowerCase()) || v],
-            []
-          )
-        ).toEqual(sortArray);
-      });
-      it('should order elements descending and case sensitive', () => {
-        const origArray = ['Fred', 'barney', 'frank', 'Bob'];
-        const sortArray = ['frank', 'barney', 'Fred', 'Bob'];
-        expect(baseOrderBy(origArray, [v => v], ['desc'])).toEqual(sortArray);
+        expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
       });
       it('should order elements descending and case insensitive', () => {
         const origArray = ['Fred', 'barney', 'frank', 'Bob'];
         const sortArray = ['Fred', 'frank', 'Bob', 'barney'];
-        expect(
-          baseOrderBy(
-            origArray,
-            [v => (typeof v === 'string' && v.toLowerCase()) || v],
-            ['desc']
-          )
-        ).toEqual(sortArray);
+        expect(baseOrderBy(origArray, [], ['desc'])).toEqual(sortArray);
       });
     });
 
@@ -246,7 +224,7 @@ describe('baseOrderBy()', () => {
           expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
-      describe('sort alphanumerics case sensitive', () => {
+      describe('sort alphanumerics case insensitive', () => {
         const origArray = [
           '9',
           '11',
@@ -273,17 +251,17 @@ describe('baseOrderBy()', () => {
           '22',
           '99',
           'A',
+          'aa',
           'AA',
           'Aa',
-          'AaA',
-          'Aaaa',
-          'BB',
           'aA',
-          'aAaa',
-          'aa',
           'aaA',
+          'AaA',
           'aaa',
           'aaaa',
+          'Aaaa',
+          'aAaa',
+          'BB',
           'bB',
           'bbbb',
         ];
@@ -1016,6 +994,13 @@ describe('baseOrderBy()', () => {
           expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
+      describe('diacritics', () => {
+        const origArray = ['b', 'd', 'f', 'A', 'Cé', 'E'];
+        const sortArray = ['A', 'b', 'Cé', 'd', 'E', 'f'];
+        it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
+        });
+      });
     });
 
     describe('sparse array sort', () => {
@@ -1062,30 +1047,12 @@ describe('baseOrderBy()', () => {
         const origArray = ['A', 'b', 'C', 'd', 'E', 'f'];
         const sortArray = ['A', 'b', 'C', 'd', 'E', 'f'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [v => v.toLowerCase()], [])).toEqual(
-            sortArray
-          );
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('case insensitive un-sorted array', () => {
         const origArray = ['A', 'C', 'E', 'b', 'd', 'f'];
         const sortArray = ['A', 'b', 'C', 'd', 'E', 'f'];
-        it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [v => v.toLowerCase()], [])).toEqual(
-            sortArray
-          );
-        });
-      });
-      describe('case sensitive pre-sorted array', () => {
-        const origArray = ['A', 'C', 'E', 'b', 'd', 'f'];
-        const sortArray = ['A', 'C', 'E', 'b', 'd', 'f'];
-        it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
-        });
-      });
-      describe('case sensitive un-sorted array', () => {
-        const origArray = ['A', 'b', 'C', 'd', 'E', 'f'];
-        const sortArray = ['A', 'C', 'E', 'b', 'd', 'f'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
           expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
@@ -1162,9 +1129,7 @@ describe('baseOrderBy()', () => {
           'cASE INDEPENENT: 3-2',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [v => v.toLowerCase()], [])).toEqual(
-            sortArray
-          );
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('Numeric fields as numerics', () => {
@@ -1215,9 +1180,7 @@ describe('baseOrderBy()', () => {
           'Equiv. \xfd accents: 2-2',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [v => v.toLowerCase()], [])).toEqual(
-            sortArray
-          );
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -1268,24 +1231,9 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
         { user: 'Fred', age: 48 },
       ];
-      expect(
-        baseOrderBy(origArray, [value => value.user.toLowerCase()], [])
-      ).toEqual(sortArray);
-    });
-    it('should order by user ascending (default) and age ascending (default) case sensitive', () => {
-      const origArray = [
-        { user: 'Fred', age: 48 },
-        { user: 'barney', age: 34 },
-        { user: 'fred', age: 40 },
-        { user: 'Barney', age: 36 },
-      ];
-      const sortArray = [
-        { user: 'Barney', age: 36 },
-        { user: 'Fred', age: 48 },
-        { user: 'barney', age: 34 },
-        { user: 'fred', age: 40 },
-      ];
-      expect(baseOrderBy(origArray, ['user', 'age'], [])).toEqual(sortArray);
+      expect(baseOrderBy(origArray, [value => value.user], [])).toEqual(
+        sortArray
+      );
     });
     it('should order by user ascending (default) and age ascending (default) case insensitive', () => {
       const origArray = [
@@ -1300,9 +1248,9 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
         { user: 'Fred', age: 48 },
       ];
-      expect(
-        baseOrderBy(origArray, [v => v.user.toLowerCase(), v => v.age], [])
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, [v => v.user, v => v.age], [])).toEqual(
+        sortArray
+      );
     });
     it('should order by user ascending (default) and age ascending (default)', () => {
       const origArray = [
@@ -1366,24 +1314,7 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
         { user: 'fred', age: 48 },
       ];
-      expect(
-        baseOrderBy(origArray, [v => v.user.toLowerCase(), v => v.age], [])
-      ).toEqual(sortArray);
-    });
-    it('should order by user descending (default) and age ascending (default) case sensitive', () => {
-      const origArray = [
-        { user: 'Fred', age: 48 },
-        { user: 'barney', age: 34 },
-        { user: 'fred', age: 40 },
-        { user: 'Barney', age: 36 },
-      ];
-      const sortArray = [
-        { user: 'fred', age: 40 },
-        { user: 'barney', age: 34 },
-        { user: 'Fred', age: 48 },
-        { user: 'Barney', age: 36 },
-      ];
-      expect(baseOrderBy(origArray, ['user', 'age'], ['desc', 'asc'])).toEqual(
+      expect(baseOrderBy(origArray, [v => v.user, v => v.age], [])).toEqual(
         sortArray
       );
     });
@@ -1401,11 +1332,7 @@ describe('baseOrderBy()', () => {
         { user: 'Barney', age: 36 },
       ];
       expect(
-        baseOrderBy(
-          origArray,
-          [v => v.user.toLowerCase(), v => v.age],
-          ['desc', 'asc']
-        )
+        baseOrderBy(origArray, [v => v.user, v => v.age], ['desc', 'asc'])
       ).toEqual(sortArray);
     });
     it('should order by user descending and age ascending (default)', () => {
@@ -1587,21 +1514,6 @@ describe('baseOrderBy()', () => {
   });
 
   describe('sorting nested arrays', () => {
-    it('should order by first element ascending (default) and second element ascending (default) case sensitive', () => {
-      const origArray = [
-        ['Fred', 48],
-        ['barney', 34],
-        ['fred', 40],
-        ['Barney', 36],
-      ];
-      const sortArray = [
-        ['Barney', 36],
-        ['Fred', 48],
-        ['barney', 34],
-        ['fred', 40],
-      ];
-      expect(baseOrderBy(origArray, ['0', '1'], [])).toEqual(sortArray);
-    });
     it('should order by first element ascending (default) and second element ascending (default) case insensitive', () => {
       const origArray = [
         ['Fred', 48],
@@ -1615,9 +1527,7 @@ describe('baseOrderBy()', () => {
         ['fred', 40],
         ['Fred', 48],
       ];
-      expect(
-        baseOrderBy(origArray, [v => v[0].toLowerCase(), v => v[1]], [])
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, ['0', '1'], [])).toEqual(sortArray);
     });
     it('should order by first element ascending (default) and second element ascending (default)', () => {
       const origArray = [
@@ -1681,9 +1591,9 @@ describe('baseOrderBy()', () => {
         ['fred', 40],
         ['fred', 48],
       ];
-      expect(
-        baseOrderBy(origArray, [v => v[0].toLowerCase(), v => v[1]], ['asc'])
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, [v => v[0], v => v[1]], ['asc'])).toEqual(
+        sortArray
+      );
     });
     it('should order by first element descending and second element ascending (default)', () => {
       const origArray = [

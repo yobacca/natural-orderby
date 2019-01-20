@@ -8,10 +8,6 @@ import type { CompareOptions, CompareFn } from '../types';
  * Creates a compare function that defines the natural sort order considering
  * the given `options` which may be passed to [`Array.prototype.sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).
  *
- * If `options` or its property `caseSensitive` is unspecified, values are
- * sorted case sensitive. Otherwise, specify `true` for case sensitive or
- * `false` for case insensitive sorting.
- *
  * If `options` or its property `order` is unspecified, values are sorted in
  * ascending sort order. Otherwise, specify an order of `'desc'` for descending
  * or `'asc'` for ascending sort order of values.

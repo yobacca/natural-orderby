@@ -1,5 +1,5 @@
 // @flow
-import type { CaseSensitive, MappedValueRecord } from '../types';
+import type { MappedValueRecord } from '../types';
 import stringify from './stringify';
 import numberify from './numberify';
 import createChunksList from './createChunksList';
@@ -10,9 +10,7 @@ import isObject from './isObject';
 import isSymbol from './isSymbol';
 import isUndefined from './isUndefined';
 
-const getMappedValueRecord = (caseSensitive: CaseSensitive = true) => (
-  value: mixed
-): MappedValueRecord => {
+const getMappedValueRecord = (value: mixed): MappedValueRecord => {
   if (
     typeof value === 'string' ||
     value instanceof String ||
@@ -21,7 +19,7 @@ const getMappedValueRecord = (caseSensitive: CaseSensitive = true) => (
     value instanceof Boolean ||
     value instanceof Date
   ) {
-    const stringValue = stringify(value, caseSensitive);
+    const stringValue = stringify(value);
     const parsedNumber = numberify(stringValue);
     const chunks = createChunksList(
       parsedNumber ? `${parsedNumber}` : stringValue

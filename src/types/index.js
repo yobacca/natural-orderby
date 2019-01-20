@@ -1,19 +1,18 @@
 // @flow
 export type CompareFn = (valueA: mixed, valueB: mixed) => number;
 
-export type CaseSensitive = boolean;
-
 export type OrderEnum = 'asc' | 'desc';
 
 export type Order = OrderEnum | CompareFn;
 
-export type CompareOptions = {|
-  caseSensitive?: CaseSensitive,
-  order?: OrderEnum,
-|};
+export type CompareOptions =
+  | {|
+      order?: OrderEnum,
+    |}
+  | OrderEnum
+  | void;
 
 export type BaseCompareOptions = {|
-  caseSensitive: CaseSensitive,
   order: Order,
 |};
 
