@@ -26,7 +26,7 @@ const baseOrderBy = <T>(
     (element, index) => {
       const values = identifierFns
         .map(identifier => getValueByIdentifier(element, identifier))
-        .map(getMappedValueRecord());
+        .map(getMappedValueRecord);
       return {
         index,
         values,

@@ -5,31 +5,31 @@ import getMappedValueRecord from '../getMappedValueRecord';
 describe('getMappedValueRecord()', () => {
   it('should call stringify(), numberify() and createChunksList() and return record for a numeric value', () => {
     const value = 100;
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = { parsedNumber: 100, chunks: [100], value };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for a numeric value (0)', () => {
     const value = 0;
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = { parsedNumber: 0, chunks: [0], value };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for a string value containing a number', () => {
     const value = '100';
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = { parsedNumber: 100, chunks: [100], value };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for an instance of Number', () => {
     const value = new Number(100);
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = { parsedNumber: 100, chunks: [100], value };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for a Date value', () => {
     const value = new Date('12 June 2018 22:25 UTC');
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = {
       chunks: [1528842300000],
       parsedNumber: 1528842300000,
@@ -40,7 +40,7 @@ describe('getMappedValueRecord()', () => {
   it('should call stringify(), numberify() and createChunksList() and return record for a string value containing a date', () => {
     const date = new Date('12 June 2018 22:25 UTC');
     const value = date.toISOString();
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = {
       parsedNumber: 1528842300000,
       chunks: [1528842300000],
@@ -50,37 +50,37 @@ describe('getMappedValueRecord()', () => {
   });
   it('should call stringify(), numberify() and createChunksList() and return a record containing original value for a boolean value (true)', () => {
     const value = true;
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = { parsedNumber: 1, chunks: [1], value };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return a record containing original value for a boolean value (false)', () => {
     const value = false;
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = { parsedNumber: 0, chunks: [0], value };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for a string value containing only characters', () => {
     const value = 'abc';
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = { chunks: ['abc'], value };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for an instance of String', () => {
     const value = new String('abc');
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = { chunks: [value.toString()], value };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for a string value containing numbers and characters', () => {
     const value = 'abc100';
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = { chunks: ['abc', 100], value };
     expect(received).toEqual(expected);
   });
   it('should not call stringify(), numberify() and createChunksList() and return a record containing original value for a null value', () => {
     const value = null;
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = {
       isArray: false,
       isFunction: false,
@@ -95,7 +95,7 @@ describe('getMappedValueRecord()', () => {
   });
   it('should not call stringify(), numberify() and createChunksList() and return a record containing original value for an undefined value', () => {
     const value = undefined;
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = {
       isArray: false,
       isFunction: false,
@@ -110,7 +110,7 @@ describe('getMappedValueRecord()', () => {
   });
   it('should not call stringify(), numberify() and createChunksList() and return a record containing original value for an object value', () => {
     const value = { a: 1, b: 2 };
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = {
       isArray: false,
       isFunction: false,
@@ -125,7 +125,7 @@ describe('getMappedValueRecord()', () => {
   });
   it('should not call stringify(), numberify() and createChunksList() and return a record containing original value for an array value', () => {
     const value = [1, 2, 3];
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = {
       isArray: true,
       isFunction: false,
@@ -140,7 +140,7 @@ describe('getMappedValueRecord()', () => {
   });
   it('should not call stringify(), numberify() and createChunksList() and return a record containing original value for a function value', () => {
     const value = () => {};
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = {
       isArray: false,
       isFunction: true,
@@ -155,7 +155,7 @@ describe('getMappedValueRecord()', () => {
   });
   it('should not call stringify(), numberify() and createChunksList() and return a record containing original value for a NaN value', () => {
     const value = Number.NaN;
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = {
       isArray: false,
       isFunction: false,
@@ -170,7 +170,7 @@ describe('getMappedValueRecord()', () => {
   });
   it('should not call stringify(), numberify() and createChunksList() and return a record containing original value for a Symbol value', () => {
     const value = Symbol();
-    const received = getMappedValueRecord(true)(value);
+    const received = getMappedValueRecord(value);
     const expected = {
       isArray: false,
       isFunction: false,
