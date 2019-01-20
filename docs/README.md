@@ -219,15 +219,9 @@ orderBy(['$102.00', '$21.10', '$101.02', '$101.01']);
 // => ['$21.10', '$101.01', '$101.02', '$102.00']
 
 
-// Default sort order case-sensitive
+// Case-insensitive sort order
 
-orderBy(['A', 'b', 'C', 'd', 'E', 'f']);
-// => ['A', 'C', 'E', 'b', 'd', 'f']
-
-
-// Enabled case-insensitive sort order
-
-orderBy(['A', 'C', 'E', 'b', 'd', 'f'], [v => v.toLowerCase()]);
+orderBy(['A', 'C', 'E', 'b', 'd', 'f']);
 // => ['A', 'b', 'C', 'd', 'E', 'f']
 
 
@@ -334,16 +328,14 @@ Creates a compare function that defines the natural sort order and which may be 
 compare(options?: CompareOptions): CompareFn
 ```
 
-| Type             | Value                                                                 |
-| :--------------- | :-------------------------------------------------------------------- |
-| `CompareOptions` | <code>{ caseSensitive?: boolean, order?: 'asc' &#124; 'desc' }</code> |
-| `CompareFn`      | <code>(valueA: mixed, valueB: mixed) => number</code>                 |
+| Type             | Value                                                 |
+| :--------------- | :---------------------------------------------------- |
+| `CompareOptions` | <code>{ order?: 'asc' &#124; 'desc' }</code>          |
+| `CompareFn`      | <code>(valueA: mixed, valueB: mixed) => number</code> |
 
 #### Description
 
 `compare()` returns a compare function that defines the natural sort order and which may be passed to [`Array.prototype.sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).
-
-If `options` or its property `caseSensitive` is unspecified, values are sorted case sensitive. Otherwise, specify `true` for case sensitive or `false` for case insensitive sorting.
 
 If `options` or its property `order` is unspecified, values are sorted in ascending sort order. Otherwise, specify an order of `'desc'` for descending or `'asc'` for ascending sort order of values.
 
@@ -404,15 +396,9 @@ import { compare } from 'natural-orderby';
 // => ['$21.10', '$101.01', '$101.02', '$102.00']
 
 
-// Default sort order case-sensitive
+// Case-insensitive sort order
 
-['A', 'b', 'C', 'd', 'E', 'f'].sort(compare());
-// => ['A', 'C', 'E', 'b', 'd', 'f']
-
-
-// Enabled case-insensitive sort order
-
-['A', 'C', 'E', 'b', 'd', 'f'].sort(compare({ caseSensitive: false }));
+['A', 'C', 'E', 'b', 'd', 'f'].sort(compare());
 // => ['A', 'b', 'C', 'd', 'E', 'f']
 
 
