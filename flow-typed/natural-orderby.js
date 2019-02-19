@@ -1,7 +1,5 @@
 type $npm$naturalOrderBy$CompareFn = (valueA: mixed, valueB: mixed) => number;
 
-type $npm$naturalOrderBy$CaseSensitive = boolean;
-
 type $npm$naturalOrderBy$OrderEnum = 'asc' | 'desc';
 
 type $npm$naturalOrderBy$Order =
@@ -9,7 +7,6 @@ type $npm$naturalOrderBy$Order =
   | $npm$naturalOrderBy$CompareFn;
 
 type $npm$naturalOrderBy$CompareOptions = {|
-  $npm$naturalOrderBy$CaseSensitive?: $npm$naturalOrderBy$CaseSensitive,
   order?: $npm$naturalOrderBy$OrderEnum,
 |};
 
