@@ -6,23 +6,23 @@ describe('compareValues()', () => {
     it('should return 0, if both values are equal numbers', () => {
       const valueA = {
         parsedNumber: 0,
-        chunks: [0],
+        chunks: [{ parsedNumber: 0, normalizedString: '0' }],
         value: 0,
       };
       const valueB = {
         parsedNumber: 0,
-        chunks: [0],
+        chunks: [{ parsedNumber: 0, normalizedString: '0' }],
         value: 0,
       };
       expect(compareValues(valueA, valueB)).toBe(0);
     });
     it('should return 0, if both values are equal strings', () => {
       const valueA = {
-        chunks: ['a'],
+        chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
         value: 'a',
       };
       const valueB = {
-        chunks: ['a'],
+        chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
         value: 'a',
       };
       expect(compareValues(valueA, valueB)).toBe(0);
@@ -30,12 +30,12 @@ describe('compareValues()', () => {
     it('should return 0, if both values are equal booleans (true)', () => {
       const valueA = {
         parsedNumber: 1,
-        chunks: [1],
+        chunks: [{ parsedNumber: 1, normalizedString: '1' }],
         value: true,
       };
       const valueB = {
         parsedNumber: 1,
-        chunks: [1],
+        chunks: [{ parsedNumber: 1, normalizedString: '1' }],
         value: true,
       };
       expect(compareValues(valueA, valueB)).toBe(0);
@@ -43,12 +43,12 @@ describe('compareValues()', () => {
     it('should return 0, if both values are equal booleans (false)', () => {
       const valueA = {
         parsedNumber: 0,
-        chunks: [0],
+        chunks: [{ parsedNumber: 0, normalizedString: '0' }],
         value: false,
       };
       const valueB = {
         parsedNumber: 0,
-        chunks: [0],
+        chunks: [{ parsedNumber: 0, normalizedString: '0' }],
         value: false,
       };
       expect(compareValues(valueA, valueB)).toBe(0);
@@ -221,45 +221,45 @@ describe('compareValues()', () => {
     it('should call compareNumbers(), if both values are unequal numbers', () => {
       const valueA = {
         parsedNumber: 0,
-        chunks: [0],
+        chunks: [{ parsedNumber: 0, normalizedString: '0' }],
         value: 0,
       };
       const valueB = {
         parsedNumber: 1,
-        chunks: [1],
+        chunks: [{ parsedNumber: 1, normalizedString: '1' }],
         value: 1,
       };
       expect(compareValues(valueA, valueB)).not.toBe(0);
     });
     it('should call compareChunks, if both values are unequal strings', () => {
       const valueA = {
-        chunks: ['a'],
+        chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
         value: 'a',
       };
       const valueB = {
-        chunks: ['b'],
+        chunks: [{ parsedNumber: undefined, normalizedString: 'b' }],
         value: 'b',
       };
       expect(compareValues(valueA, valueB)).not.toBe(0);
     });
     it('should call compareChunks, if first value is a number and second value is a string', () => {
       const valueA = {
-        chunks: [1],
+        chunks: [{ parsedNumber: 1, normalizedString: '1' }],
         value: 1,
       };
       const valueB = {
-        chunks: ['b'],
+        chunks: [{ parsedNumber: undefined, normalizedString: 'b' }],
         value: 'b',
       };
       expect(compareValues(valueA, valueB)).not.toBe(0);
     });
     it('should call compareChunks, if first value is a string and second value is a number', () => {
       const valueA = {
-        chunks: ['b'],
+        chunks: [{ parsedNumber: undefined, normalizedString: 'b' }],
         value: 'b',
       };
       const valueB = {
-        chunks: [1],
+        chunks: [{ parsedNumber: 1, normalizedString: '1' }],
         value: 1,
       };
       expect(compareValues(valueA, valueB)).not.toBe(0);
@@ -267,7 +267,7 @@ describe('compareValues()', () => {
     it('should call compareOtherTypes, if first value is a number and second value is NaN', () => {
       const valueA = {
         parsedNumber: 1,
-        chunks: [1],
+        chunks: [{ parsedNumber: 1, normalizedString: '1' }],
         value: 1,
       };
       const valueB = {
@@ -295,14 +295,14 @@ describe('compareValues()', () => {
       };
       const valueB = {
         parsedNumber: 1,
-        chunks: [1],
+        chunks: [{ parsedNumber: 1, normalizedString: '1' }],
         value: 1,
       };
       expect(compareValues(valueA, valueB)).not.toBe(0);
     });
     it('should call compareOtherTypes, if first value is a string and second value is NaN', () => {
       const valueA = {
-        chunks: ['b'],
+        chunks: [{ parsedNumber: undefined, normalizedString: 'b' }],
         value: 'b',
       };
       const valueB = {
@@ -329,7 +329,7 @@ describe('compareValues()', () => {
         value: NaN,
       };
       const valueB = {
-        chunks: ['b'],
+        chunks: [{ parsedNumber: undefined, normalizedString: 'b' }],
         value: 'b',
       };
       expect(compareValues(valueA, valueB)).not.toBe(0);

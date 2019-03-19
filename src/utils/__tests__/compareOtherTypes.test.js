@@ -4,7 +4,7 @@ import compareOtherTypes from '../compareOtherTypes';
 describe('compareOtherTypes()', () => {
   it('should return -1, if the first value is a string and the second value is an array, object, function, NaN, Symbol, null or undefined', () => {
     const valueA = {
-      chunks: ['a'],
+      chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
       value: 'a',
     };
     const valueB = {
@@ -21,11 +21,11 @@ describe('compareOtherTypes()', () => {
   });
   it('should return 0, if both values are strings', () => {
     const valueA = {
-      chunks: ['a'],
+      chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
       value: 'a',
     };
     const valueB = {
-      chunks: ['b'],
+      chunks: [{ parsedNumber: undefined, normalizedString: 'b' }],
       value: 'b',
     };
     expect(compareOtherTypes(valueA, valueB)).toBe(0);
@@ -42,7 +42,7 @@ describe('compareOtherTypes()', () => {
       value: NaN,
     };
     const valueB = {
-      chunks: ['a'],
+      chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
       value: 'a',
     };
     expect(compareOtherTypes(valueA, valueB)).toBeGreaterThan(0);

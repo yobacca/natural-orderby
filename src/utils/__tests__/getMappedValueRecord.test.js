@@ -6,32 +6,50 @@ describe('getMappedValueRecord()', () => {
   it('should call stringify(), numberify() and createChunksList() and return record for a numeric value', () => {
     const value = 100;
     const received = getMappedValueRecord(value);
-    const expected = { parsedNumber: 100, chunks: [100], value };
+    const expected = {
+      parsedNumber: 100,
+      chunks: [{ parsedNumber: 100, normalizedString: '100' }],
+      value,
+    };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for a numeric value (0)', () => {
     const value = 0;
     const received = getMappedValueRecord(value);
-    const expected = { parsedNumber: 0, chunks: [0], value };
+    const expected = {
+      parsedNumber: 0,
+      chunks: [{ parsedNumber: 0, normalizedString: '0' }],
+      value,
+    };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for a string value containing a number', () => {
     const value = '100';
     const received = getMappedValueRecord(value);
-    const expected = { parsedNumber: 100, chunks: [100], value };
+    const expected = {
+      parsedNumber: 100,
+      chunks: [{ parsedNumber: 100, normalizedString: '100' }],
+      value,
+    };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for an instance of Number', () => {
     const value = new Number(100);
     const received = getMappedValueRecord(value);
-    const expected = { parsedNumber: 100, chunks: [100], value };
+    const expected = {
+      parsedNumber: 100,
+      chunks: [{ parsedNumber: 100, normalizedString: '100' }],
+      value,
+    };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for a Date value', () => {
     const value = new Date('12 June 2018 22:25 UTC');
     const received = getMappedValueRecord(value);
     const expected = {
-      chunks: [1528842300000],
+      chunks: [
+        { parsedNumber: 1528842300000, normalizedString: '1528842300000' },
+      ],
       parsedNumber: 1528842300000,
       value,
     };
@@ -43,7 +61,9 @@ describe('getMappedValueRecord()', () => {
     const received = getMappedValueRecord(value);
     const expected = {
       parsedNumber: 1528842300000,
-      chunks: [1528842300000],
+      chunks: [
+        { parsedNumber: 1528842300000, normalizedString: '1528842300000' },
+      ],
       value,
     };
     expect(received).toEqual(expected);
@@ -51,31 +71,51 @@ describe('getMappedValueRecord()', () => {
   it('should call stringify(), numberify() and createChunksList() and return a record containing original value for a boolean value (true)', () => {
     const value = true;
     const received = getMappedValueRecord(value);
-    const expected = { parsedNumber: 1, chunks: [1], value };
+    const expected = {
+      parsedNumber: 1,
+      chunks: [{ parsedNumber: 1, normalizedString: '1' }],
+      value,
+    };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return a record containing original value for a boolean value (false)', () => {
     const value = false;
     const received = getMappedValueRecord(value);
-    const expected = { parsedNumber: 0, chunks: [0], value };
+    const expected = {
+      parsedNumber: 0,
+      chunks: [{ parsedNumber: 0, normalizedString: '0' }],
+      value,
+    };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for a string value containing only characters', () => {
     const value = 'abc';
     const received = getMappedValueRecord(value);
-    const expected = { chunks: ['abc'], value };
+    const expected = {
+      chunks: [{ parsedNumber: undefined, normalizedString: 'abc' }],
+      value,
+    };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for an instance of String', () => {
     const value = new String('abc');
     const received = getMappedValueRecord(value);
-    const expected = { chunks: [value.toString()], value };
+    const expected = {
+      chunks: [{ parsedNumber: undefined, normalizedString: value.toString() }],
+      value,
+    };
     expect(received).toEqual(expected);
   });
   it('should call stringify(), numberify() and createChunksList() and return record for a string value containing numbers and characters', () => {
     const value = 'abc100';
     const received = getMappedValueRecord(value);
-    const expected = { chunks: ['abc', 100], value };
+    const expected = {
+      chunks: [
+        { parsedNumber: undefined, normalizedString: 'abc' },
+        { parsedNumber: 100, normalizedString: '100' },
+      ],
+      value,
+    };
     expect(received).toEqual(expected);
   });
   it('should not call stringify(), numberify() and createChunksList() and return a record containing original value for a null value', () => {
