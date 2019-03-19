@@ -1,37 +1,61 @@
 // @flow
-import type { Chunks } from '../types';
+import type { ChunkMaps } from '../types';
 import { RE_UNICODE_CHARACTERS } from './regex';
 import compareNumbers from './compareNumbers';
 import compareUnicode from './compareUnicode';
 import stringCompare from './stringCompare';
 
-const compareChunks = (chunksA: Chunks, chunksB: Chunks): number => {
+const compareChunks = (chunksA: ChunkMaps, chunksB: ChunkMaps): number => {
   const lengthA = chunksA.length;
   const lengthB = chunksB.length;
   const size = Math.min(lengthA, lengthB);
   for (let i = 0; i < size; i++) {
     const chunkA = chunksA[i];
     const chunkB = chunksB[i];
-    if (chunkA !== chunkB) {
-      if ((chunkA === '') !== (chunkB === '')) {
+    if (chunkA.normalizedString !== chunkB.normalizedString) {
+      if (
+        (chunkA.normalizedString === '') !==
+        (chunkB.normalizedString === '')
+      ) {
         // empty strings have lowest value
-        return chunkA === '' ? -1 : 1;
+        return chunkA.normalizedString === '' ? -1 : 1;
       }
-      if (typeof chunkA === 'number' && typeof chunkB === 'number') {
+      if (
+        chunkA.parsedNumber !== undefined &&
+        chunkB.parsedNumber !== undefined
+      ) {
         // compare numbers
-        return compareNumbers(chunkA, chunkB);
-      } else if (typeof chunkA === 'number' || typeof chunkB === 'number') {
-        // number < string
-        return typeof chunkA === 'number' ? -1 : 1;
+        const result = compareNumbers(chunkA.parsedNumber, chunkB.parsedNumber);
+        if (result === 0) {
+          // compare string value, if parsed numbers are equal
+          // Example:
+          // chunkA = { parsedNumber: 1, normalizedString: "001" }
+          // chunkB = { parsedNumber: 1, normalizedString: "01" }
+          // chunkA.parsedNumber === chunkB.parsedNumber
+          // chunkA.normalizedString < chunkB.normalizedString
+          return stringCompare(
+            chunkA.normalizedString,
+            chunkB.normalizedString
+          );
+        }
+        return result;
       } else if (
-        RE_UNICODE_CHARACTERS.test(chunkA + chunkB) &&
-        chunkA.localeCompare
+        chunkA.parsedNumber !== undefined ||
+        chunkB.parsedNumber !== undefined
+      ) {
+        // number < string
+        return chunkA.parsedNumber !== undefined ? -1 : 1;
+      } else if (
+        RE_UNICODE_CHARACTERS.test(
+          chunkA.normalizedString + chunkB.normalizedString
+        ) &&
+        chunkA.normalizedString.localeCompare
       ) {
         // use locale comparison only if one of the chunks contains unicode characters
-        return compareUnicode(chunkA, chunkB);
+        return compareUnicode(chunkA.normalizedString, chunkB.normalizedString);
       } else {
         // use common string comparison for performance reason
-        return stringCompare(chunkA, chunkB);
+        return stringCompare(chunkA.normalizedString, chunkB.normalizedString);
       }
     }
   }

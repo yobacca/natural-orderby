@@ -22,13 +22,20 @@ export type Identifier<T> = IdentifierFn<T> | string;
 
 export type ParsedNumber = number;
 
-export type Chunk = string | number;
+export type Chunk = string;
 
 export type Chunks = $ReadOnlyArray<Chunk>;
 
+export type ChunkMap = {
+  parsedNumber?: number,
+  normalizedString: string,
+};
+
+export type ChunkMaps = $ReadOnlyArray<ChunkMap>;
+
 export type MappedValueRecord = {|
   parsedNumber?: ParsedNumber,
-  chunks?: Chunks,
+  chunks?: ChunkMaps,
   isArray?: boolean,
   isFunction?: boolean,
   isNaN?: boolean,
