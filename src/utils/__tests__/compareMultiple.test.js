@@ -9,7 +9,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -19,7 +19,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -32,7 +32,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -42,7 +42,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -55,7 +55,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -65,7 +65,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -80,7 +80,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -90,7 +90,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -103,7 +103,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -113,7 +113,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -126,7 +126,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -136,7 +136,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -151,7 +151,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -161,7 +161,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -174,7 +174,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -184,7 +184,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -197,7 +197,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -207,7 +207,7 @@ describe('compareMultiple()', () => {
         values: [
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -221,12 +221,12 @@ describe('compareMultiple()', () => {
         index: 0,
         values: [
           {
-            chunks: ['a'],
+            chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
             value: 'a',
           },
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -235,12 +235,12 @@ describe('compareMultiple()', () => {
         index: 1,
         values: [
           {
-            chunks: ['a'],
+            chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
             value: 'a',
           },
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -254,12 +254,12 @@ describe('compareMultiple()', () => {
         index: 0,
         values: [
           {
-            chunks: ['a'],
+            chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
             value: 'a',
           },
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -268,12 +268,12 @@ describe('compareMultiple()', () => {
         index: 1,
         values: [
           {
-            chunks: ['a'],
+            chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
             value: 'a',
           },
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -287,12 +287,12 @@ describe('compareMultiple()', () => {
         index: 0,
         values: [
           {
-            chunks: ['a'],
+            chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
             value: 'a',
           },
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -301,12 +301,12 @@ describe('compareMultiple()', () => {
         index: 1,
         values: [
           {
-            chunks: ['a'],
+            chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
             value: 'a',
           },
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -323,12 +323,12 @@ describe('compareMultiple()', () => {
         index: 0,
         values: [
           {
-            chunks: ['a'],
+            chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
             value: 'a',
           },
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -337,12 +337,12 @@ describe('compareMultiple()', () => {
         index: 1,
         values: [
           {
-            chunks: ['a'],
+            chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
             value: 'a',
           },
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],
@@ -362,12 +362,12 @@ describe('compareMultiple()', () => {
         index: 0,
         values: [
           {
-            chunks: ['a'],
+            chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
             value: 'a',
           },
           {
             parsedNumber: 0,
-            chunks: [0],
+            chunks: [{ parsedNumber: 0, normalizedString: '0' }],
             value: 0,
           },
         ],
@@ -376,12 +376,12 @@ describe('compareMultiple()', () => {
         index: 1,
         values: [
           {
-            chunks: ['a'],
+            chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
             value: 'a',
           },
           {
             parsedNumber: 1,
-            chunks: [1],
+            chunks: [{ parsedNumber: 1, normalizedString: '1' }],
             value: 1,
           },
         ],

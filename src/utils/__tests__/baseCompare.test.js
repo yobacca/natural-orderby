@@ -749,6 +749,35 @@ describe('baseCompare()', () => {
         );
       });
     });
+    describe('numerics with prepended zero and optional trailing characters', () => {
+      const origArray = [
+        '05',
+        '06',
+        '07*',
+        '08A',
+        '09 B',
+        '10',
+        '11',
+        '12A',
+        '13',
+      ];
+      const sortArray = [
+        '05',
+        '06',
+        '07*',
+        '08A',
+        '09 B',
+        '10',
+        '11',
+        '12A',
+        '13',
+      ];
+      it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
+        expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
+          sortArray
+        );
+      });
+    });
     describe('negative numbers as strings - mixed input type, string + numeric', () => {
       const origArray = [-1, '-2', 4, -3, '0', '-5'];
       const sortArray = ['-5', -3, '-2', -1, '0', 4];
@@ -813,18 +842,24 @@ describe('baseCompare()', () => {
     });
     describe('complex filenames', () => {
       const origArray = [
-        'car.mov',
-        '01alpha.sgi',
-        '001alpha.sgi',
-        'my.string_41299.tif',
-        'organic2.0001.sgi',
+        '01asset_0815.png',
+        'asset_47103.jpg',
+        'asset_151.jpg',
+        'asset_001.jpg',
+        'asset_0001.jpg',
+        '001asset_4711.jpg',
+        '0001asset_4711.jpg',
+        'asset_342.mp4',
       ];
       const sortArray = [
-        '001alpha.sgi',
-        '01alpha.sgi',
-        'car.mov',
-        'my.string_41299.tif',
-        'organic2.0001.sgi',
+        '0001asset_4711.jpg',
+        '001asset_4711.jpg',
+        '01asset_0815.png',
+        'asset_0001.jpg',
+        'asset_001.jpg',
+        'asset_151.jpg',
+        'asset_342.mp4',
+        'asset_47103.jpg',
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
