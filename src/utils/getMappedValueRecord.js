@@ -2,7 +2,7 @@
 import type { MappedValueRecord } from '../types';
 import stringify from './stringify';
 import numberify from './numberify';
-import createChunksList from './createChunksList';
+import createChunkMaps from './createChunkMaps';
 import isFunction from './isFunction';
 import isNaN from './isNaN';
 import isNull from './isNull';
@@ -21,7 +21,7 @@ const getMappedValueRecord = (value: mixed): MappedValueRecord => {
   ) {
     const stringValue = stringify(value);
     const parsedNumber = numberify(stringValue);
-    const chunks = createChunksList(
+    const chunks = createChunkMaps(
       parsedNumber ? `${parsedNumber}` : stringValue
     );
     return {
