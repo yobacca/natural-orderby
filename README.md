@@ -147,7 +147,7 @@ orderBy<T>(
 
 | Type            | Value                                                                            |
 | :-------------- | :------------------------------------------------------------------------------- |
-| `Identifier<T>` | <code>string &#124; (value: T) => mixed)</code>                                  |
+| `Identifier<T>` | <code>string &#124; (value: T) => mixed</code>                                  |
 | `Order`         | <code>'asc' &#124; 'desc' &#124; (valueA: mixed, valueB: mixed) => number</code> |
 
 #### Description
