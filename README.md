@@ -37,7 +37,7 @@ yarn add natural-orderby
 If you´re not using a module bundler or package manager there´s also a global ("IIFE") build hosted on the unpkg CDN. Simply add the following `<script>` tag to the bottom of your HTML file:
 
 ```html
-<script src="https://unpkg.com/natural-orderby/iife/natural-orderby.min.js"></script>
+<script src="https://unpkg.com/natural-orderby/dist/umd/natural-orderby.production.min.js"></script>
 ```
 
 Once you've added `natural-orderby` you will have access to the global `window.naturalOrderBy` variable.
