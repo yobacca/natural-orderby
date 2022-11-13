@@ -72,7 +72,7 @@
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
     "@commitlint/types": "^17.0.0",
-    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-babel": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-terser": "^0.1.0",
     "@types/jest": "29.2.2",
