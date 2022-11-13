@@ -1,43 +1,75 @@
 {
-  "parser": "babel-eslint",
-  "extends": ["airbnb-base", "prettier"],
-  "plugins": ["flowtype"],
-  "rules": {
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "arrow-parens": 0,
-    "flowtype/boolean-style": [2, "boolean"],
-    "flowtype/define-flow-type": 1,
-    "flowtype/no-dupe-keys": 2,
-    "flowtype/object-type-delimiter": 2,
-    "flowtype/require-valid-file-annotation": [
-      2,
-      "always",
-      { "annotationStyle": "line" }
-    ],
-    "flowtype/space-before-type-colon": [2, "never"],
-    "flowtype/space-after-type-colon": [2, "always"],
-    "flowtype/union-intersection-spacing": [2, "always"],
-    "import/no-extraneous-dependencies": 0,
-    "no-control-regex": 0,
-    "no-confusing-arrow": 0,
-    "no-duplicate-imports": 0,
-    "no-else-return": 0,
-    "no-param-reassign": ["error", { "props": false }],
-    "no-prototype-builtins": 0,
-    "no-restricted-syntax": 0,
-    "no-unused-vars": [2, { "varsIgnorePattern": "^_+$" }],
-    "symbol-description": 0
-  },
-  "env": {
-    "browser": true,
-    "jest": true,
-    "node": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "impliedStrict": true
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:node/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript"
+  ],
+  "plugins": ["import"],
+  "settings": {
+    "node": {
+      "tryExtensions": [".json", ".node", ".ts"]
     }
-  }
+  },
+  "rules": {
+    "import/order": [
+      1,
+      {
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["sibling", "parent", "index"]
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "@typescript-eslint/consistent-type-assertions": [
+      "warn",
+      {
+        "assertionStyle": "never"
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowExpressions": true,
+        "allowTypedFunctionExpressions": true,
+        "allowHigherOrderFunctions": true
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      { "prefer": "type-imports" }
+    ],
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      {
+        "ignores": ["dynamicImport", "modules"]
+      }
+    ],
+    "node/no-missing-import": ["off"],
+    "no-unused-vars": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/__tests__/**"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"]
+    }
+  ]
 }

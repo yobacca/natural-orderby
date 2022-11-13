@@ -11,6 +11,15 @@ People sort strings containing numbers differently than most sorting algorithms,
 
 In addition to the efficient and fast `orderBy()` method `natural-orderby` also provides the method `compare()`, which may be passed to [`Array.prototype.sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).
 
+## Contents
+
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [API Reference](#api-reference)
+- [TypeScript Declarations](#typescript-declarations)
+- [Credits](#credits)
+- [License](#license)
+
 ---
 
 ## Getting Started
@@ -74,7 +83,7 @@ const users = [
   },
 ];
 
-orderBy(
+const sortedUsers = orderBy(
   users,
   [v => v.datetime, v => v.ip],
   ['desc', 'asc']
@@ -128,18 +137,18 @@ It also avoids the high overhead caused by [`Array.prototype.sort()`](https://de
 #### Syntax
 
 <!-- prettier-ignore -->
-```javascript
+```typescript
 orderBy<T>(
-  collection: Array<T>,
-  identifiers?: ?Array<Identifier<T>> | ?Identifier<T>,
-  orders?: ?Array<Order> | ?Order
+  collection: ReadonlyArray<T>,
+  identifiers?: ReadonlyArray<Identifier<T>> | Identifier<T> | null,
+  orders?: ReadonlyArray<Order> | Order | null
 ): Array<T>
 ```
 
-| Type            | Value                                                                            |
-| :-------------- | :------------------------------------------------------------------------------- |
-| `Identifier<T>` | <code>string &#124; (value: T) => mixed)</code>                                  |
-| `Order`         | <code>'asc' &#124; 'desc' &#124; (valueA: mixed, valueB: mixed) => number</code> |
+| Type            | Value                                                                                |
+| :-------------- | :----------------------------------------------------------------------------------- |
+| `Identifier<T>` | <code>string &#124; number &#124; (value: T) => unknown</code>                       |
+| `Order`         | <code>'asc' &#124; 'desc' &#124; (valueA: unknown, valueB: unknown) => number</code> |
 
 #### Description
 
@@ -328,10 +337,10 @@ Creates a compare function that defines the natural sort order and which may be 
 compare(options?: CompareOptions): CompareFn
 ```
 
-| Type             | Value                                                 |
-| :--------------- | :---------------------------------------------------- |
-| `CompareOptions` | <code>{ order?: 'asc' &#124; 'desc' }</code>          |
-| `CompareFn`      | <code>(valueA: mixed, valueB: mixed) => number</code> |
+| Type             | Value                                                     |
+| :--------------- | :-------------------------------------------------------- |
+| `CompareOptions` | <code>{ order?: 'asc' &#124; 'desc' }</code>              |
+| `CompareFn`      | <code>(valueA: unknown, valueB: unknown) => number</code> |
 
 #### Description
 
@@ -507,3 +516,17 @@ users.sort((a, b) => compare()(a.lastLogin.ip, b.lastLogin.ip));
 //      },
 //    ]
 ```
+
+## TypeScript Declarations
+
+`natural-orderby` is completely written in [TypeScript](https://www.typescriptlang.org/) and provides TypeScript declarations.
+
+## Credits
+
+Inspired by [The Alphanum Algorithm](http://www.davekoelle.com/alphanum.html) from Dave Koelle.
+
+## License
+
+Licensed under the MIT License, Copyright © 2018 - present Olaf Ennen.
+
+See [LICENSE](./LICENSE.md) for more information.
