@@ -16,7 +16,7 @@ In addition to the efficient and fast `orderBy()` method `natural-orderby` also 
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [API Reference](#api-reference)
-- [Flow Type Definitions](#flow-type-definitions)
+- [TypeScript Declarations](#typescript-declarations)
 - [Credits](#credits)
 - [License](#license)
 
@@ -137,18 +137,18 @@ It also avoids the high overhead caused by [`Array.prototype.sort()`](https://de
 #### Syntax
 
 <!-- prettier-ignore -->
-```javascript
+```typescript
 orderBy<T>(
-  collection: Array<T>,
-  identifiers?: ?Array<Identifier<T>> | ?Identifier<T>,
-  orders?: ?Array<Order> | ?Order
+  collection: ReadonlyArray<T>,
+  identifiers?: ReadonlyArray<Identifier<T>> | Identifier<T> | null,
+  orders?: ReadonlyArray<Order> | Order | null
 ): Array<T>
 ```
 
-| Type            | Value                                                                            |
-| :-------------- | :------------------------------------------------------------------------------- |
-| `Identifier<T>` | <code>string &#124; (value: T) => mixed)</code>                                  |
-| `Order`         | <code>'asc' &#124; 'desc' &#124; (valueA: mixed, valueB: mixed) => number</code> |
+| Type            | Value                                                                                |
+| :-------------- | :----------------------------------------------------------------------------------- |
+| `Identifier<T>` | <code>string &#124; number &#124; (value: T) => unknown</code>                       |
+| `Order`         | <code>'asc' &#124; 'desc' &#124; (valueA: unknown, valueB: unknown) => number</code> |
 
 #### Description
 
@@ -337,10 +337,10 @@ Creates a compare function that defines the natural sort order and which may be 
 compare(options?: CompareOptions): CompareFn
 ```
 
-| Type             | Value                                                 |
-| :--------------- | :---------------------------------------------------- |
-| `CompareOptions` | <code>{ order?: 'asc' &#124; 'desc' }</code>          |
-| `CompareFn`      | <code>(valueA: mixed, valueB: mixed) => number</code> |
+| Type             | Value                                                     |
+| :--------------- | :-------------------------------------------------------- |
+| `CompareOptions` | <code>{ order?: 'asc' &#124; 'desc' }</code>              |
+| `CompareFn`      | <code>(valueA: unknown, valueB: unknown) => number</code> |
 
 #### Description
 
@@ -517,13 +517,9 @@ users.sort((a, b) => compare()(a.lastLogin.ip, b.lastLogin.ip));
 //    ]
 ```
 
-## Flow Type Definitions
-
-`natural-orderby` has first-class [Flow](https://flow.org/) support with zero configuration to assist you in finding type errors while using our modules.
-
 ## TypeScript Declarations
 
-`natural-orderby` has also [TypeScript](https://www.typescriptlang.org/) support and provides TypeScript declarations.
+`natural-orderby` is completely written in [TypeScript](https://www.typescriptlang.org/) and provides TypeScript declarations.
 
 ## Credits
 
@@ -533,4 +529,4 @@ Inspired by [The Alphanum Algorithm](http://www.davekoelle.com/alphanum.html) fr
 
 Licensed under the MIT License, Copyright © 2018 - present Olaf Ennen.
 
-See [LICENSE](./LICENSE) for more information.
+See [LICENSE](./LICENSE.md) for more information.

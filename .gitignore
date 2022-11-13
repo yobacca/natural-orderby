@@ -12,9 +12,7 @@ coverage/
 .DS_Store
 
 # generated files
-iife/
-cjs/
-esm/
+dist/
 
 # logs
 npm-debug.log*
