@@ -17,6 +17,7 @@
     "format": "prettier --ignore-path .eslintignore --write src",
     "lint": "eslint src",
     "test": "cross-env TZ=UTC jest src",
+    "size": "filesize",
     "prepublishOnly": "yarn build",
     "prepare": "husky install"
   },
@@ -62,6 +63,7 @@
   "homepage": "https://yobacca.github.io/natural-orderby",
   "dependencies": {},
   "devDependencies": {
+    "@ampproject/filesize": "^4.3.0",
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-modules": "^0.1.5",
@@ -106,5 +108,13 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "filesize": {
+    "./dist/umd/natural-orderby.production.min.js": {
+      "none": "5.5 kB"
+    },
+    "./dist/natural-orderby.production.min.js": {
+      "none": "4.6 kB"
+    }
   }
 }
