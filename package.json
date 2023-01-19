@@ -74,7 +74,7 @@
     "@commitlint/types": "^17.0.0",
     "@rollup/plugin-babel": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-terser": "^0.1.0",
+    "@rollup/plugin-terser": "^0.3.0",
     "@types/jest": "29.2.5",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",

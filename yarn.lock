@@ -1708,11 +1708,13 @@
     is-module "^1.0.0"
     resolve "^1.22.1"
 
-"@rollup/plugin-terser@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-terser/-/plugin-terser-0.1.0.tgz#7530c0f11667637419d71820461646c418526041"
-  integrity sha512-N2KK+qUfHX2hBzVzM41UWGLrEmcjVC37spC8R3c9mt3oEDFKh3N2e12/lLp9aVSt86veR0TQiCNQXrm8C6aiUQ==
+"@rollup/plugin-terser@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-terser/-/plugin-terser-0.3.0.tgz#43ee908fed27ed2bc876496fb9aab8033a0566ac"
+  integrity sha512-mYTkNW9KjOscS/3QWU5LfOKsR3/fAAVDaqcAe2TZ7ng6pN46f+C7FOZbITuIW/neA+PhcjoKl7yMyB3XcmA4gw==
   dependencies:
+    serialize-javascript "^6.0.0"
+    smob "^0.0.6"
     terser "^5.15.1"
 
 "@rollup/pluginutils@^5.0.1":
@@ -5518,6 +5520,13 @@ quick-lru@^4.0.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-4.0.1.tgz#5b8878f113a58217848c6482026c73e1ba57727f"
   integrity sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==
 
+randombytes@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
+  integrity sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==
+  dependencies:
+    safe-buffer "^5.1.0"
+
 range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
@@ -5794,7 +5803,7 @@ rxjs@^7.5.5:
   dependencies:
     tslib "^2.1.0"
 
-safe-buffer@~5.2.0:
+safe-buffer@^5.1.0, safe-buffer@~5.2.0:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
   integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
@@ -5862,6 +5871,13 @@ send@0.18.0:
     on-finished "2.4.1"
     range-parser "~1.2.1"
     statuses "2.0.1"
+
+serialize-javascript@^6.0.0:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-6.0.1.tgz#b206efb27c3da0b0ab6b52f48d170b7996458e5c"
+  integrity sha512-owoXEFjWRllis8/M1Q+Cw5k8ZH40e3zhp/ovX+Xr/vi1qj6QesbyXXViFbpNvWvPNAD62SutwEXavefrLJWj7w==
+  dependencies:
+    randombytes "^2.1.0"
 
 serve-static@^1.12.1:
   version "1.15.0"
@@ -5968,6 +5984,11 @@ smartwrap@^2.0.2:
     strip-ansi "^6.0.0"
     wcwidth "^1.0.1"
     yargs "^15.1.0"
+
+smob@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/smob/-/smob-0.0.6.tgz#09b268fea916158a2781c152044c6155adbb8aa1"
+  integrity sha512-V21+XeNni+tTyiST1MHsa84AQhT1aFZipzPpOFAVB8DkHzwJyjjAmt9bgwnuZiZWnIbMo2duE29wybxv/7HWUw==
 
 source-map-support@0.5.13:
   version "0.5.13"
