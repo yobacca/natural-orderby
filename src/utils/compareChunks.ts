@@ -42,6 +42,12 @@ export const compareChunks = (
         }
         return result;
       } else if (
+        chunkA.normalizedString === '.' ||
+        chunkB.normalizedString === '.'
+      ) {
+        // . always come first
+        return chunkA.normalizedString === '.' ? -1 : 1;
+      } else if (
         chunkA.parsedNumber !== undefined ||
         chunkB.parsedNumber !== undefined
       ) {
