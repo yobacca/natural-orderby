@@ -831,8 +831,8 @@ describe('baseCompare()', () => {
 
   describe('filenames', () => {
     describe('simple image filenames', () => {
-      const origArray = ['img12.png', 'img10.png', 'img2.png', 'img1.png'];
-      const sortArray = ['img1.png', 'img2.png', 'img10.png', 'img12.png'];
+      const origArray = ['img12.png', 'img10.png', 'img2.png', 'img1.png', 'img10hd.png', 'img.png'];
+      const sortArray = ['img.png', 'img1.png', 'img2.png', 'img10.png', 'img10hd.png', 'img12.png'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
           sortArray
