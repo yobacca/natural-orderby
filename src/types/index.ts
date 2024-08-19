@@ -17,7 +17,7 @@ export type BaseCompareOptions = {
 
 export type IdentifierFn<T> = (value: T) => unknown;
 
-export type Identifier<T> = IdentifierFn<T> | string | number;
+export type Identifier<T> = IdentifierFn<T> | keyof T | number;
 
 export type ParsedNumber = number;
 
