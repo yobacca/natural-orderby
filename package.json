@@ -19,7 +19,7 @@
     "test": "cross-env TZ=UTC jest src",
     "size": "filesize",
     "prepublishOnly": "yarn build",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "files": [
     "dist/",
