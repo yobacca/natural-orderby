@@ -1,12 +1,14 @@
 import babel from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
+import { readFileSync } from 'node:fs';
 import * as path from 'path';
 import del from 'rollup-plugin-delete';
 import dts from 'rollup-plugin-dts';
 
-import pkg from './package.json';
-
+const pkg = JSON.parse(
+  readFileSync(new URL('./package.json', import.meta.url))
+);
 const ROOT_DIR = '.';
 const SOURCE_DIR = path.join(ROOT_DIR, 'src');
 const OUTPUT_DIR = path.join(ROOT_DIR, 'dist');
