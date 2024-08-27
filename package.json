@@ -92,7 +92,7 @@
     "jest": "^29.3.1",
     "lint-staged": "^15.2.9",
     "prettier": "^2.5.1",
-    "rollup": "^2.79.1",
+    "rollup": "^4.21.1",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-dts": "^5.0.0",
     "ts-jest": "^29.0.3",
