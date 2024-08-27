@@ -1,0 +1,42 @@
+name: Linter
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: read
+  statuses: write
+
+jobs:
+  lint:
+    name: Lint Codebase
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        id: setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          check-latest: true
+          cache: yarn
+
+      - name: Install dependencies
+        id: install
+        run: yarn install --frozen-lockfile
+
+      - name: Lint
+        id: lint
+        run: yarn lint
