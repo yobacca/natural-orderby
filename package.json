@@ -83,7 +83,7 @@
     "cross-env": "^7.0.3",
     "docsify-cli": "^4.3.0",
     "eslint": "^8.27.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jest": "^27.1.4",
     "eslint-plugin-n": "^14.0.0",
