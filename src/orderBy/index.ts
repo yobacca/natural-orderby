@@ -12,7 +12,7 @@ import { getOrders } from '../utils/getOrders';
 export function orderBy<T>(
   collection: ReadonlyArray<T>,
   identifiers?: ReadonlyArray<Identifier<T>> | Identifier<T> | null,
-  orders?: ReadonlyArray<Order> | Order | null
+  orders?: ReadonlyArray<Order> | Order | null,
 ): Array<T> {
   if (!collection || !Array.isArray(collection)) {
     return [];

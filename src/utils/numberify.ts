@@ -1,6 +1,6 @@
-import type { ParsedNumber } from '../types';
 import { parseDate } from './parseDate';
 import { parseNumber } from './parseNumber';
+import type { ParsedNumber } from '../types';
 
 export const numberify = (value: string): ParsedNumber | undefined => {
   const parsedNumber = parseNumber(value);

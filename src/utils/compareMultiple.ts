@@ -1,10 +1,10 @@
-import type { Order, MappedRecord } from '../types';
 import { compareValues } from './compareValues';
+import type { Order, MappedRecord } from '../types';
 
 export const compareMultiple = (
   recordA: MappedRecord,
   recordB: MappedRecord,
-  orders: ReadonlyArray<Order>
+  orders: ReadonlyArray<Order>,
 ): number => {
   const { index: indexA, values: valuesA } = recordA;
   const { index: indexB, values: valuesB } = recordB;

@@ -1,19 +1,19 @@
+import { compareMultiple } from './compareMultiple';
+import { createIdentifierFn } from './createIdentifierFn';
+import { getElementByIndex } from './getElementByIndex';
+import { getMappedValueRecord } from './getMappedValueRecord';
+import { getValueByIdentifier } from './getValueByIdentifier';
 import type {
   Identifier,
   Order,
   MappedCollection,
   IdentifierFn,
 } from '../types';
-import { compareMultiple } from './compareMultiple';
-import { createIdentifierFn } from './createIdentifierFn';
-import { getElementByIndex } from './getElementByIndex';
-import { getMappedValueRecord } from './getMappedValueRecord';
-import { getValueByIdentifier } from './getValueByIdentifier';
 
 export const baseOrderBy = <T>(
   collection: ReadonlyArray<T>,
   identifiers: ReadonlyArray<Identifier<T>>,
-  orders: ReadonlyArray<Order>
+  orders: ReadonlyArray<Order>,
 ): Array<T> => {
   const identifierFns: Array<IdentifierFn<T>> = identifiers.length
     ? identifiers.map(createIdentifierFn)
@@ -29,15 +29,15 @@ export const baseOrderBy = <T>(
         index,
         values,
       };
-    }
+    },
   );
 
   // iterate over values and compare values until a != b or last value reached
   mappedCollection.sort((recordA, recordB) =>
-    compareMultiple(recordA, recordB, orders)
+    compareMultiple(recordA, recordB, orders),
   );
 
   return mappedCollection.map((element) =>
-    getElementByIndex(collection, element.index)
+    getElementByIndex(collection, element.index),
   );
 };

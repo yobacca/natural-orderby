@@ -1,7 +1,7 @@
 import type { Identifier, IdentifierFn } from '../types';
 
 export const createIdentifierFn = <T>(
-  identifier: Identifier<T>
+  identifier: Identifier<T>,
 ): IdentifierFn<T> => {
   if (typeof identifier === 'function') {
     // identifier is already a lookup function

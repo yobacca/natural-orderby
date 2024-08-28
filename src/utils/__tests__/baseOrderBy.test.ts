@@ -824,8 +824,8 @@ describe('baseOrderBy()', () => {
                 typeof valueA === 'number' && typeof valueB === 'number'
                   ? valueA - valueB
                   : 0,
-            ]
-          )
+            ],
+          ),
         ).toEqual(sortArray);
       });
     });
@@ -904,7 +904,7 @@ describe('baseOrderBy()', () => {
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
           expect(
-            baseOrderBy(origArray, [(v) => v.split('.').pop(), (v) => v], [])
+            baseOrderBy(origArray, [(v) => v.split('.').pop(), (v) => v], []),
           ).toEqual(sortArray);
         });
       });
@@ -1227,7 +1227,7 @@ describe('baseOrderBy()', () => {
         const sortArray = ['f', 'e', 'd', 'c', 'b', 'a'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
           expect(baseOrderBy(origArray, [(v) => v], ['desc'])).toEqual(
-            sortArray
+            sortArray,
           );
         });
       });
@@ -1236,7 +1236,7 @@ describe('baseOrderBy()', () => {
         const sortArray = ['f', 'e', 'd', 'c', 'b', 'a'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
           expect(baseOrderBy(origArray, [(v) => v], ['desc'])).toEqual(
-            sortArray
+            sortArray,
           );
         });
       });
@@ -1245,7 +1245,7 @@ describe('baseOrderBy()', () => {
         const sortArray = ['a', 'b', 'c', 'd', 'e', 'f'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
           expect(baseOrderBy(origArray, [(v) => v], ['asc'])).toEqual(
-            sortArray
+            sortArray,
           );
         });
       });
@@ -1254,7 +1254,7 @@ describe('baseOrderBy()', () => {
         const sortArray = ['a', 'b', 'c', 'd', 'e', 'f'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
           expect(baseOrderBy(origArray, [(v) => v], ['asc'])).toEqual(
-            sortArray
+            sortArray,
           );
         });
       });
@@ -1276,7 +1276,7 @@ describe('baseOrderBy()', () => {
         { user: 'Fred', age: 48 },
       ];
       expect(baseOrderBy(origArray, [(value) => value.user], [])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by user ascending (default) and age ascending (default) case insensitive', () => {
@@ -1293,7 +1293,7 @@ describe('baseOrderBy()', () => {
         { user: 'Fred', age: 48 },
       ];
       expect(baseOrderBy(origArray, [(v) => v.user, (v) => v.age], [])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by user ascending (default) and age ascending (default)', () => {
@@ -1325,7 +1325,7 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 48 },
       ];
       expect(baseOrderBy(origArray, ['user', 'age'], ['asc'])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by user ascending (default) and age descending', () => {
@@ -1342,7 +1342,7 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
       ];
       expect(baseOrderBy(origArray, ['user', 'age'], ['asc', 'desc'])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by user ascending and age ascending (default)', () => {
@@ -1359,7 +1359,7 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 48 },
       ];
       expect(baseOrderBy(origArray, [(v) => v.user, (v) => v.age], [])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by user descending (default) and age ascending (default) case insensitive', () => {
@@ -1376,7 +1376,7 @@ describe('baseOrderBy()', () => {
         { user: 'Barney', age: 36 },
       ];
       expect(
-        baseOrderBy(origArray, [(v) => v.user, (v) => v.age], ['desc', 'asc'])
+        baseOrderBy(origArray, [(v) => v.user, (v) => v.age], ['desc', 'asc']),
       ).toEqual(sortArray);
     });
     it('should order by user descending and age ascending (default)', () => {
@@ -1393,7 +1393,7 @@ describe('baseOrderBy()', () => {
         { user: 'barney', age: 36 },
       ];
       expect(baseOrderBy(origArray, ['user', 'age'], ['desc', 'asc'])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by user ascending and age ascending', () => {
@@ -1410,7 +1410,7 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 48 },
       ];
       expect(baseOrderBy(origArray, ['user', 'age'], ['asc', 'asc'])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by user ascending and age descending', () => {
@@ -1429,7 +1429,7 @@ describe('baseOrderBy()', () => {
         { user: 'wilma', age: 32 },
       ];
       expect(baseOrderBy(origArray, ['user', 'age'], ['asc', 'desc'])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by user descending and age ascending', () => {
@@ -1446,7 +1446,7 @@ describe('baseOrderBy()', () => {
         { user: 'barney', age: 36 },
       ];
       expect(baseOrderBy(origArray, ['user', 'age'], ['desc', 'asc'])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by user ascending (default) and age ascending (default) using functional identifiers', () => {
@@ -1463,7 +1463,7 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 48 },
       ];
       expect(baseOrderBy(origArray, [(v) => v.user, (v) => v.age], [])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by datetime descending and ip ascending using functional identifiers', () => {
@@ -1555,8 +1555,8 @@ describe('baseOrderBy()', () => {
         baseOrderBy(
           origArray,
           [(v) => v.datetime, (v) => v.ip],
-          ['desc', 'asc']
-        )
+          ['desc', 'asc'],
+        ),
       ).toEqual(sortArray);
     });
   });
@@ -1606,7 +1606,7 @@ describe('baseOrderBy()', () => {
         ['fred', 48],
       ];
       expect(baseOrderBy(origArray, ['0', '1'], ['asc', 'asc'])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by first element ascending (default) and second element descending', () => {
@@ -1623,7 +1623,7 @@ describe('baseOrderBy()', () => {
         ['fred', 40],
       ];
       expect(baseOrderBy(origArray, ['0', '1'], ['asc', 'desc'])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by first element ascending and second element ascending (default) case insensitive', () => {
@@ -1640,7 +1640,7 @@ describe('baseOrderBy()', () => {
         ['fred', 48],
       ];
       expect(
-        baseOrderBy(origArray, [(v) => v[0], (v) => v[1]], ['asc'])
+        baseOrderBy(origArray, [(v) => v[0], (v) => v[1]], ['asc']),
       ).toEqual(sortArray);
     });
     it('should order by first element descending and second element ascending (default)', () => {
@@ -1672,7 +1672,7 @@ describe('baseOrderBy()', () => {
         ['fred', 48],
       ];
       expect(baseOrderBy(origArray, ['0', '1'], ['asc', 'asc'])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by first element ascending and second element descending', () => {
@@ -1691,7 +1691,7 @@ describe('baseOrderBy()', () => {
         ['wilma', 32],
       ];
       expect(baseOrderBy(origArray, ['0', '1'], ['asc', 'desc'])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by first element descending and second element ascending', () => {
@@ -1708,7 +1708,7 @@ describe('baseOrderBy()', () => {
         ['barney', 36],
       ];
       expect(baseOrderBy(origArray, ['0', '1'], ['desc', 'asc'])).toEqual(
-        sortArray
+        sortArray,
       );
     });
     it('should order by first element ascending (default) and second element ascending (default) using functional identifiers', () => {
@@ -1725,7 +1725,7 @@ describe('baseOrderBy()', () => {
         ['fred', 48],
       ];
       expect(baseOrderBy(origArray, [(v) => v[0], (v) => v[1]], [])).toEqual(
-        sortArray
+        sortArray,
       );
     });
   });

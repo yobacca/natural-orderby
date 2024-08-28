@@ -1,7 +1,7 @@
 import type { Identifier } from '../types';
 
 export const getIdentifiers = <T>(
-  identifiers?: ReadonlyArray<Identifier<T>> | Identifier<T> | null
+  identifiers?: ReadonlyArray<Identifier<T>> | Identifier<T> | null,
 ): Array<Identifier<T>> => {
   if (!identifiers) {
     return [];
@@ -14,7 +14,7 @@ export const getIdentifiers = <T>(
       (identifier) =>
         typeof identifier !== 'string' &&
         typeof identifier !== 'number' &&
-        typeof identifier !== 'function'
+        typeof identifier !== 'function',
     )
   ) {
     return [];

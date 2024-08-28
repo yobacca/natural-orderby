@@ -245,7 +245,7 @@ describe('compareMultiple()', () => {
         ],
       };
       expect(compareMultiple(recordA, recordB, ['desc', 'asc'])).toBeLessThan(
-        0
+        0,
       );
     });
     it('should call compareValues() twice and return result without changing order (11)', () => {
@@ -278,7 +278,7 @@ describe('compareMultiple()', () => {
         ],
       };
       expect(compareMultiple(recordA, recordB, ['desc', 'asc'])).toBeLessThan(
-        0
+        0,
       );
     });
     it('should call compareValues() twice and return result without changing order (12)', () => {
@@ -311,7 +311,7 @@ describe('compareMultiple()', () => {
         ],
       };
       expect(
-        compareMultiple(recordA, recordB, ['asc', 'desc'])
+        compareMultiple(recordA, recordB, ['asc', 'desc']),
       ).toBeGreaterThan(0);
     });
   });
@@ -347,12 +347,12 @@ describe('compareMultiple()', () => {
         ],
       };
       expect(compareMultiple(recordA, recordB, ['desc', order])).toBeLessThan(
-        0
+        0,
       );
       expect(order).toHaveBeenCalledTimes(1);
       expect(order).toHaveBeenCalledWith(
         recordA.values[1].value,
-        recordB.values[1].value
+        recordB.values[1].value,
       );
     });
     it('should call order() and compareValues() once and return result of compareValues()', () => {
@@ -389,7 +389,7 @@ describe('compareMultiple()', () => {
       expect(order).toHaveBeenCalledTimes(1);
       expect(order).toHaveBeenCalledWith(
         recordA.values[0].value,
-        recordB.values[0].value
+        recordB.values[0].value,
       );
     });
   });

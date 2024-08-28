@@ -14,7 +14,7 @@ describe('isNaN()', () => {
     expect(
       isNaN((): void => {
         return;
-      })
+      }),
     ).toBe(false);
     expect(isNaN(null)).toBe(false);
     expect(isNaN(undefined)).toBe(false);

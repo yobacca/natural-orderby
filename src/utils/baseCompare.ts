@@ -1,6 +1,6 @@
-import type { BaseCompareOptions } from '../types';
 import { compareValues } from './compareValues';
 import { getMappedValueRecord } from './getMappedValueRecord';
+import type { BaseCompareOptions } from '../types';
 
 export const baseCompare =
   (options: BaseCompareOptions) =>

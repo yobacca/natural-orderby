@@ -18,7 +18,7 @@ describe('isObject()', () => {
     expect(
       isObject((): void => {
         return;
-      })
+      }),
     ).toBe(false);
     expect(isObject(null)).toBe(false);
     expect(isObject(undefined)).toBe(false);
