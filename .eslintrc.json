@@ -3,7 +3,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:prettier/recommended",
-    "plugin:node/recommended",
+    "plugin:n/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript"
@@ -56,13 +56,13 @@
       "warn",
       { "prefer": "type-imports" }
     ],
-    "node/no-unsupported-features/es-syntax": [
+    "n/no-unsupported-features/es-syntax": [
       "error",
       {
         "ignores": ["dynamicImport", "modules"]
       }
     ],
-    "node/no-missing-import": ["off"],
+    "n/no-missing-import": ["off"],
     "no-unused-vars": "off"
   },
   "overrides": [
