@@ -1,11 +1,11 @@
-import type { Chunk, Chunks } from '../types';
 import { parseNumber } from './parseNumber';
 import { RE_INT_OR_FLOAT, RE_LEADING_ZERO } from './regex';
+import type { Chunk, Chunks } from '../types';
 
 export const normalizeNumericChunk = (
   chunk: Chunk,
   index: number,
-  chunks: Chunks
+  chunks: Chunks,
 ): number | undefined => {
   if (RE_INT_OR_FLOAT.test(chunk)) {
     // don´t parse a number, if there´s a preceding decimal point

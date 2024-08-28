@@ -1,12 +1,12 @@
-import type { ChunkMaps } from '../types';
 import { compareNumbers } from './compareNumbers';
 import { compareUnicode } from './compareUnicode';
 import { RE_UNICODE_CHARACTERS } from './regex';
 import { stringCompare } from './stringCompare';
+import type { ChunkMaps } from '../types';
 
 export const compareChunks = (
   chunksA: ChunkMaps,
-  chunksB: ChunkMaps
+  chunksB: ChunkMaps,
 ): number => {
   const lengthA = chunksA.length;
   const lengthB = chunksB.length;
@@ -37,7 +37,7 @@ export const compareChunks = (
           // chunkA.normalizedString < chunkB.normalizedString
           return stringCompare(
             chunkA.normalizedString,
-            chunkB.normalizedString
+            chunkB.normalizedString,
           );
         }
         return result;
@@ -49,7 +49,7 @@ export const compareChunks = (
         return chunkA.parsedNumber !== undefined ? -1 : 1;
       } else if (
         RE_UNICODE_CHARACTERS.test(
-          chunkA.normalizedString + chunkB.normalizedString
+          chunkA.normalizedString + chunkB.normalizedString,
         )
       ) {
         // use locale comparison only if one of the chunks contains unicode characters

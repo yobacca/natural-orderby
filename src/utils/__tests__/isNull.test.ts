@@ -15,7 +15,7 @@ describe('isNull()', () => {
     expect(
       isNull((): void => {
         return;
-      })
+      }),
     ).toBe(false);
     expect(isNull(undefined)).toBe(false);
   });

@@ -1,4 +1,4 @@
 export const getElementByIndex = <T>(
   collection: ReadonlyArray<T>,
-  index: number
+  index: number,
 ): T => collection[index];

@@ -2,7 +2,7 @@ import type { MappedValueRecord } from '../types';
 
 export const compareOtherTypes = (
   valueA: MappedValueRecord,
-  valueB: MappedValueRecord
+  valueB: MappedValueRecord,
 ): number => {
   if (!valueA.chunks ? valueB.chunks : !valueB.chunks) {
     return !valueA.chunks ? 1 : -1;

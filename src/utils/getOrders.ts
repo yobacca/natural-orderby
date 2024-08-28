@@ -1,7 +1,7 @@
 import type { Order } from '../types';
 
 export const getOrders = (
-  orders?: ReadonlyArray<Order> | Order | null
+  orders?: ReadonlyArray<Order> | Order | null,
 ): Array<Order> => {
   if (!orders) {
     return [];
@@ -10,7 +10,7 @@ export const getOrders = (
   if (
     orderList.some(
       (order) =>
-        order !== 'asc' && order !== 'desc' && typeof order !== 'function'
+        order !== 'asc' && order !== 'desc' && typeof order !== 'function',
     )
   ) {
     return [];

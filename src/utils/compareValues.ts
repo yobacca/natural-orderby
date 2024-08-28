@@ -1,11 +1,11 @@
-import type { MappedValueRecord } from '../types';
 import { compareChunks } from './compareChunks';
 import { compareNumbers } from './compareNumbers';
 import { compareOtherTypes } from './compareOtherTypes';
+import type { MappedValueRecord } from '../types';
 
 export const compareValues = (
   valueA: MappedValueRecord,
-  valueB: MappedValueRecord
+  valueB: MappedValueRecord,
 ): number => {
   if (valueA.value === valueB.value) {
     return 0;
