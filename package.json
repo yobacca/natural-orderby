@@ -17,6 +17,7 @@
     "format": "prettier --ignore-path .eslintignore --write src",
     "lint": "eslint src",
     "test": "cross-env TZ=UTC jest src",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
     "size": "filesize",
     "prepublishOnly": "yarn build",
     "prepare": "husky"
