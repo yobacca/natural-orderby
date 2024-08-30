@@ -1,11 +1,11 @@
-# Welcome to 🌲 natural-orderby &middot; [![npm package][npm-badge]][npm] [![build][build-badge]][build]
+# Welcome to 🌲 natural-orderby
 
-[npm-badge]: https://img.shields.io/npm/v/natural-orderby.svg?style=flat-square
-[npm]: https://www.npmjs.org/package/natural-orderby
-[build-badge]: https://img.shields.io/github/workflow/status/yobacca/natural-orderby/test/main?style=flat-square
-[build]: https://github.com/yobacca/natural-orderby/actions/workflows/test.yml
+Lightweight (< 1.6kB gzipped) and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.
 
-> Lightweight (< 1.6kB gzipped) and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.
+[![npm version](https://img.shields.io/npm/v/natural-orderby.svg)](https://www.npmjs.com/package/natural-orderby)
+[![downloads](https://img.shields.io/npm/dm/natural-orderby.svg)](https://www.npmjs.com/package/natural-orderby)
+[![CI](https://github.com/natural-orderby/workflows/CI/badge.svg)](https://github.com/natural-orderby/actions)
+[![coverage](https://img.shields.io/codecov/c/github/yobacca/natural-orderby.svg)](https://codecov.io/gh/yobacca/natural-orderby)
 
 People sort strings containing numbers differently than most sorting algorithms, which sort values by comparing strings in Unicode code point order. This produces an ordering that is inconsistent with human logic.
 
