@@ -4,7 +4,7 @@ Lightweight (< 1.6kB gzipped) and performant natural sorting of arrays and colle
 
 [![npm version](https://img.shields.io/npm/v/natural-orderby.svg)](https://www.npmjs.com/package/natural-orderby)
 [![downloads](https://img.shields.io/npm/dm/natural-orderby.svg)](https://www.npmjs.com/package/natural-orderby)
-[![CI](https://github.com/natural-orderby/workflows/CI/badge.svg)](https://github.com/natural-orderby/actions)
+[![CI](https://github.com/yobacca/natural-orderby/workflows/CI/badge.svg)](https://github.com/yobacca/natural-orderby/actions)
 [![coverage](https://img.shields.io/codecov/c/github/yobacca/natural-orderby.svg)](https://codecov.io/gh/yobacca/natural-orderby)
 
 People sort strings containing numbers differently than most sorting algorithms, which sort values by comparing strings in Unicode code point order. This produces an ordering that is inconsistent with human logic.
