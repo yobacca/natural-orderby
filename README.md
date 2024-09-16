@@ -149,7 +149,7 @@ orderBy<T>(
 
 | Type            | Value                                                                                |
 | :-------------- | :----------------------------------------------------------------------------------- |
-| `Identifier<T>` | <code>string &#124; number &#124; (value: T) => unknown</code>                       |
+| `Identifier<T>` | <code>keyof T &#124; number &#124; (value: T) => unknown</code>                      |
 | `Order`         | <code>'asc' &#124; 'desc' &#124; (valueA: unknown, valueB: unknown) => number</code> |
 
 #### Description
