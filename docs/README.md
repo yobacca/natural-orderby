@@ -1,9 +1,11 @@
-<h1>natural-orderby</h1>
+# Welcome to 🌲 natural-orderby
 
-> Lightweight (< 1.6kB gzipped) and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.
+Lightweight (< 1.6kB gzipped) and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.
 
-[![npm](https://img.shields.io/npm/v/natural-orderby.svg)](https://www.npmjs.com/package/natural-orderby)
-[![Build Status](https://travis-ci.org/yobacca/natural-orderby.svg?branch=master)](https://travis-ci.org/yobacca/natural-orderby) [![codecov](https://codecov.io/gh/yobacca/natural-orderby/branch/master/graph/badge.svg)](https://codecov.io/gh/yobacca/natural-orderby) [![dependencies](https://david-dm.org/yobacca/natural-orderby.svg)](https://david-dm.org/yobacca/natural-orderby)
+[![npm version](https://img.shields.io/npm/v/natural-orderby.svg)](https://www.npmjs.com/package/natural-orderby)
+[![downloads](https://img.shields.io/npm/dm/natural-orderby.svg)](https://www.npmjs.com/package/natural-orderby)
+[![CI](https://github.com/yobacca/natural-orderby/workflows/CI/badge.svg)](https://github.com/yobacca/natural-orderby/actions)
+[![coverage](https://img.shields.io/codecov/c/github/yobacca/natural-orderby.svg)](https://codecov.io/gh/yobacca/natural-orderby)
 
 People sort strings containing numbers differently than most sorting algorithms, which sort values by comparing strings in Unicode code point order. This produces an ordering that is inconsistent with human logic.
 
@@ -147,7 +149,7 @@ orderBy<T>(
 
 | Type            | Value                                                                                |
 | :-------------- | :----------------------------------------------------------------------------------- |
-| `Identifier<T>` | <code>string &#124; number &#124; (value: T) => unknown</code>                       |
+| `Identifier<T>` | <code>keyof T &#124; number &#124; (value: T) => unknown</code>                      |
 | `Order`         | <code>'asc' &#124; 'desc' &#124; (valueA: unknown, valueB: unknown) => number</code> |
 
 #### Description
