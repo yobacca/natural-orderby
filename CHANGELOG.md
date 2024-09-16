@@ -1,5 +1,11 @@
 # natural-orderby
 
+## 4.0.0
+
+### Major Changes
+
+- fix: update `Identifier<T>` to be `keyof T` instead of any `string`
+
 ## 3.0.2
 
 ### Patch Changes
