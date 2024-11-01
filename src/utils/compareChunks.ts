@@ -7,6 +7,7 @@ import type { ChunkMaps } from '../types';
 export const compareChunks = (
   chunksA: ChunkMaps,
   chunksB: ChunkMaps,
+  locale = 'en',
 ): number => {
   const lengthA = chunksA.length;
   const lengthB = chunksB.length;
@@ -53,7 +54,11 @@ export const compareChunks = (
         )
       ) {
         // use locale comparison only if one of the chunks contains unicode characters
-        return compareUnicode(chunkA.normalizedString, chunkB.normalizedString);
+        return compareUnicode(
+          chunkA.normalizedString,
+          chunkB.normalizedString,
+          locale,
+        );
       } else {
         // use common string comparison for performance reason
         return stringCompare(chunkA.normalizedString, chunkB.normalizedString);

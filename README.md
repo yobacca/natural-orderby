@@ -339,10 +339,10 @@ Creates a compare function that defines the natural sort order and which may be 
 compare(options?: CompareOptions): CompareFn
 ```
 
-| Type             | Value                                                     |
-| :--------------- | :-------------------------------------------------------- |
-| `CompareOptions` | <code>{ order?: 'asc' &#124; 'desc' }</code>              |
-| `CompareFn`      | <code>(valueA: unknown, valueB: unknown) => number</code> |
+| Type             | Value                                                                     |
+| :--------------- | :------------------------------------------------------------------------ |
+| `CompareOptions` | <code>{ order?: 'asc' &#124; 'desc' }</code>                              |
+| `CompareFn`      | <code>(valueA: unknown, valueB: unknown, locale: string) => number</code> |
 
 #### Description
 

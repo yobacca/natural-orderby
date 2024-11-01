@@ -1,4 +1,8 @@
-export type CompareFn = (valueA: unknown, valueB: unknown) => number;
+export type CompareFn = (
+  valueA: unknown,
+  valueB: unknown,
+  locale?: string,
+) => number;
 
 export type OrderEnum = 'asc' | 'desc';
 
