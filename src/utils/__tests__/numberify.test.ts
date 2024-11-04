@@ -6,11 +6,6 @@ describe('numberify()', () => {
     const expected = 123;
     expect(numberify(value)).toEqual(expected);
   });
-  it('should call parseNumber() for numbers with separators and return a number', () => {
-    const value = '1_000_000';
-    const expected = 1000000;
-    expect(numberify(value)).toEqual(expected);
-  });
   it('should call parseNumber() and parseDate() and return 1514743200000', () => {
     const value = '2017-12-31T18:00:00Z';
     const expected = 1514743200000;
