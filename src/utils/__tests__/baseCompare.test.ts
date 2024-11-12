@@ -1228,5 +1228,15 @@ describe('baseCompare()', () => {
         );
       });
     });
+    describe('Allow to set locale', () => {
+      const compareDe = baseCompare({ order: 'asc', locale: 'de' });
+      const compareSv = baseCompare({ order: 'asc', locale: 'sv' });
+      it('should works with german locale', () => {
+        expect(compareDe('ä', 'z')).toBe(-1);
+      });
+      it('should works with swedish locale', () => {
+        expect(compareSv('ä', 'z')).toBe(1);
+      });
+    });
   });
 });

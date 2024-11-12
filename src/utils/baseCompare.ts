@@ -8,7 +8,7 @@ export const baseCompare =
     const a = getMappedValueRecord(valueA);
     const b = getMappedValueRecord(valueB);
 
-    const result = compareValues(a, b);
+    const result = compareValues(a, b, options.locale);
 
     return result * (options.order === 'desc' ? -1 : 1);
   };
