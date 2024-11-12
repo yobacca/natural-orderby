@@ -1229,12 +1229,13 @@ describe('baseCompare()', () => {
       });
     });
     describe('Allow to set locale', () => {
-      const compare = baseCompare({ order: 'asc' });
+      const compareDe = baseCompare({ order: 'asc', locale: 'de' });
+      const compareSv = baseCompare({ order: 'asc', locale: 'sv' });
       it('should works with german locale', () => {
-        expect(compare('ä', 'z', 'de')).toBe(-1);
+        expect(compareDe('ä', 'z')).toBe(-1);
       });
       it('should works with swedish locale', () => {
-        expect(compare('ä', 'z', 'sv')).toBe(1);
+        expect(compareSv('ä', 'z')).toBe(1);
       });
     });
   });

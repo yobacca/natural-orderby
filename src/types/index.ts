@@ -11,11 +11,13 @@ export type Order = OrderEnum | CompareFn;
 export type CompareOptions =
   | {
       order?: OrderEnum;
+      locale?: string;
     }
   | OrderEnum
   | undefined;
 
 export type BaseCompareOptions = {
+  locale?: string;
   order: Order;
 };
 

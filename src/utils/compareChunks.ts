@@ -7,7 +7,7 @@ import type { ChunkMaps } from '../types';
 export const compareChunks = (
   chunksA: ChunkMaps,
   chunksB: ChunkMaps,
-  locale = 'en',
+  locale: string,
 ): number => {
   const lengthA = chunksA.length;
   const lengthB = chunksB.length;

@@ -4,11 +4,11 @@ import type { BaseCompareOptions } from '../types';
 
 export const baseCompare =
   (options: BaseCompareOptions) =>
-  (valueA: unknown, valueB: unknown, locale = 'en'): number => {
+  (valueA: unknown, valueB: unknown): number => {
     const a = getMappedValueRecord(valueA);
     const b = getMappedValueRecord(valueB);
 
-    const result = compareValues(a, b, locale);
+    const result = compareValues(a, b, options.locale);
 
     return result * (options.order === 'desc' ? -1 : 1);
   };
