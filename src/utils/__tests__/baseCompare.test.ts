@@ -252,6 +252,15 @@ describe('baseCompare()', () => {
         );
       });
     });
+    describe('numbers with separators', () => {
+      const origArray = ['100', '20', '10_000', '5_000', '2_000_000'];
+      const sortArray = ['20', '100', '5_000', '10_000', '2_000_000'];
+      it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
+        expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
+          sortArray,
+        );
+      });
+    });
     describe('alphanumerics containing very large numbers', () => {
       const origArray = [
         'MySnmp 1234567891234567891234567891234567891234567891234567891234567891234567891234567891234567891234567891234567891234567891234567891234567',

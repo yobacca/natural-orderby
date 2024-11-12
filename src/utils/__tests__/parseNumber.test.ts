@@ -31,4 +31,9 @@ describe('parseNumber()', () => {
     const expected = undefined;
     expect(parseNumber(value)).toEqual(expected);
   });
+  it('should return 1000000 for number with numeric separators', () => {
+    const value = '1_000_000';
+    const expected = 1000000;
+    expect(parseNumber(value)).toEqual(expected);
+  });
 });
