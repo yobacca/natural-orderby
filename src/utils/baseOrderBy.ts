@@ -15,7 +15,7 @@ export const baseOrderBy = <T>(
   collection: ReadonlyArray<T>,
   identifiers: ReadonlyArray<Identifier<T>>,
   orders: ReadonlyArray<Order>,
-  locale: Locale,
+  locale?: Locale,
 ): Array<T> => {
   const identifierFns: Array<IdentifierFn<T>> = identifiers.length
     ? identifiers.map(createIdentifierFn)

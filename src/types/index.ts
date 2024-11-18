@@ -14,7 +14,7 @@ export type CompareOptions =
 
 export type BaseCompareOptions = {
   order: Order;
-  locale: Locale;
+  locale?: Locale;
 };
 
 export type Locale = string;

@@ -3,7 +3,7 @@ import { getOptions } from '../getOptions';
 
 const defaultOptions: CompareOptions = {
   order: 'asc',
-  locale: 'en',
+  locale: undefined,
 };
 
 describe('getOptions()', () => {

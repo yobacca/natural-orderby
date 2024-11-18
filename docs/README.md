@@ -342,17 +342,17 @@ Creates a compare function that defines the natural sort order and which may be 
 compare(options?: CompareOptions): CompareFn
 ```
 
-| Type             | Value                                                        |
-| :--------------- | :----------------------------------------------------------- |
-| `CompareOptions` | <code>{ order?: 'asc' &#124; 'desc', locale: string }</code> |
-| `CompareFn`      | <code>(valueA: unknown, valueB: unknown) => number</code>    |
+| Type             | Value                                                         |
+| :--------------- | :------------------------------------------------------------ |
+| `CompareOptions` | <code>{ order?: 'asc' &#124; 'desc', locale?: string }</code> |
+| `CompareFn`      | <code>(valueA: unknown, valueB: unknown) => number</code>     |
 
 #### Description
 
 `compare()` returns a compare function that defines the natural sort order and which may be passed to [`Array.prototype.sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).
 
 If `options` or its property `order` is unspecified, values are sorted in ascending sort order. Otherwise, specify an order of `'desc'` for descending or `'asc'` for ascending sort order of values.
-If unicode strings should be ordered corresponding to a specific locale setting, specify the according value for the options property `locale`. It must be a string with a BCP 47 language tag.
+If unicode strings should be ordered corresponding to a specific locale setting, specify the according value for the options property `locale`. It must be a string with a BCP 47 language tag. If the option is unspecified, the host locale setting will be used.
 
 #### Examples
 

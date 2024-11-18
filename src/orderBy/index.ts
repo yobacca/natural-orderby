@@ -13,7 +13,7 @@ export function orderBy<T>(
   collection: ReadonlyArray<T>,
   identifiers?: ReadonlyArray<Identifier<T>> | Identifier<T> | null,
   orders?: ReadonlyArray<Order> | Order | null,
-  locale: Locale = 'en',
+  locale?: Locale,
 ): Array<T> {
   if (!collection || !Array.isArray(collection)) {
     return [];
