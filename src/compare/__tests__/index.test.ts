@@ -4,6 +4,7 @@ import { compare } from '../index';
 
 const defaultOptions: CompareOptions = {
   order: 'asc',
+  locale: 'en',
 };
 
 jest.mock('../../utils/baseCompare', () => ({

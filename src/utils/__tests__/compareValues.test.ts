@@ -13,7 +13,7 @@ describe('compareValues()', () => {
         chunks: [{ parsedNumber: 0, normalizedString: '0' }],
         value: 0,
       };
-      expect(compareValues(valueA, valueB)).toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).toBe(0);
     });
     it('should return 0, if both values are equal strings', () => {
       const valueA = {
@@ -24,7 +24,7 @@ describe('compareValues()', () => {
         chunks: [{ parsedNumber: undefined, normalizedString: 'a' }],
         value: 'a',
       };
-      expect(compareValues(valueA, valueB)).toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).toBe(0);
     });
     it('should return 0, if both values are equal booleans (true)', () => {
       const valueA = {
@@ -37,7 +37,7 @@ describe('compareValues()', () => {
         chunks: [{ parsedNumber: 1, normalizedString: '1' }],
         value: true,
       };
-      expect(compareValues(valueA, valueB)).toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).toBe(0);
     });
     it('should return 0, if both values are equal booleans (false)', () => {
       const valueA = {
@@ -50,7 +50,7 @@ describe('compareValues()', () => {
         chunks: [{ parsedNumber: 0, normalizedString: '0' }],
         value: false,
       };
-      expect(compareValues(valueA, valueB)).toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).toBe(0);
     });
     it('should return 0, if both values are NaN', () => {
       const valueA = {
@@ -73,7 +73,7 @@ describe('compareValues()', () => {
         isUndefined: false,
         value: NaN,
       };
-      expect(compareValues(valueA, valueB)).toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).toBe(0);
     });
     it('should return 0, if both values are Symbol', () => {
       const valueA = {
@@ -96,7 +96,7 @@ describe('compareValues()', () => {
         isUndefined: false,
         value: Symbol('foo'),
       };
-      expect(compareValues(valueA, valueB)).toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).toBe(0);
     });
     it('should return 0, if both values are objects', () => {
       const valueA = {
@@ -119,7 +119,7 @@ describe('compareValues()', () => {
         isUndefined: false,
         value: {},
       };
-      expect(compareValues(valueA, valueB)).toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).toBe(0);
     });
     it('should return 0, if both values are arrays', () => {
       const valueA = {
@@ -142,7 +142,7 @@ describe('compareValues()', () => {
         isUndefined: false,
         value: [1, 2],
       };
-      expect(compareValues(valueA, valueB)).toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).toBe(0);
     });
     it('should return 0, if both values are functions', () => {
       const valueA = {
@@ -169,7 +169,7 @@ describe('compareValues()', () => {
           return 0;
         },
       };
-      expect(compareValues(valueA, valueB)).toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).toBe(0);
     });
     it('should return 0, if both values are null', () => {
       const valueA = {
@@ -192,7 +192,7 @@ describe('compareValues()', () => {
         isUndefined: false,
         value: null,
       };
-      expect(compareValues(valueA, valueB)).toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).toBe(0);
     });
     it('should return 0, if both values are undefined', () => {
       const valueA = {
@@ -215,7 +215,7 @@ describe('compareValues()', () => {
         isUndefined: true,
         value: undefined,
       };
-      expect(compareValues(valueA, valueB)).toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).toBe(0);
     });
   });
   describe('unequal values', () => {
@@ -230,7 +230,7 @@ describe('compareValues()', () => {
         chunks: [{ parsedNumber: 1, normalizedString: '1' }],
         value: 1,
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareChunks, if both values are unequal strings', () => {
       const valueA = {
@@ -241,7 +241,7 @@ describe('compareValues()', () => {
         chunks: [{ parsedNumber: undefined, normalizedString: 'b' }],
         value: 'b',
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareChunks, if first value is a number and second value is a string', () => {
       const valueA = {
@@ -252,7 +252,7 @@ describe('compareValues()', () => {
         chunks: [{ parsedNumber: undefined, normalizedString: 'b' }],
         value: 'b',
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareChunks, if first value is a string and second value is a number', () => {
       const valueA = {
@@ -263,7 +263,7 @@ describe('compareValues()', () => {
         chunks: [{ parsedNumber: 1, normalizedString: '1' }],
         value: 1,
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareOtherTypes, if first value is a number and second value is NaN', () => {
       const valueA = {
@@ -281,7 +281,7 @@ describe('compareValues()', () => {
         isUndefined: false,
         value: NaN,
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareOtherTypes, if first value is NaN and second value is a number', () => {
       const valueA = {
@@ -299,7 +299,7 @@ describe('compareValues()', () => {
         chunks: [{ parsedNumber: 1, normalizedString: '1' }],
         value: 1,
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareOtherTypes, if first value is a string and second value is NaN', () => {
       const valueA = {
@@ -316,7 +316,7 @@ describe('compareValues()', () => {
         isUndefined: false,
         value: NaN,
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareOtherTypes, if first value is NaN and second value is a string', () => {
       const valueA = {
@@ -333,7 +333,7 @@ describe('compareValues()', () => {
         chunks: [{ parsedNumber: undefined, normalizedString: 'b' }],
         value: 'b',
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareOtherTypes, if first value is a Symbol and second value is an object', () => {
       const valueA = {
@@ -356,7 +356,7 @@ describe('compareValues()', () => {
         isUndefined: false,
         value: {},
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareOtherTypes, if first value is an object and second value is an array', () => {
       const valueA = {
@@ -379,7 +379,7 @@ describe('compareValues()', () => {
         isUndefined: false,
         value: [],
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareOtherTypes, if first value is an array and second value is a function', () => {
       const valueA = {
@@ -404,7 +404,7 @@ describe('compareValues()', () => {
           return;
         },
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareOtherTypes, if first value is a function and second value is null', () => {
       const valueA = {
@@ -429,7 +429,7 @@ describe('compareValues()', () => {
         isUndefined: false,
         value: null,
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
     it('should call compareOtherTypes, if first value is null and second value is undefined', () => {
       const valueA = {
@@ -452,7 +452,7 @@ describe('compareValues()', () => {
         isUndefined: true,
         value: undefined,
       };
-      expect(compareValues(valueA, valueB)).not.toBe(0);
+      expect(compareValues(valueA, valueB, 'en')).not.toBe(0);
     });
   });
 });

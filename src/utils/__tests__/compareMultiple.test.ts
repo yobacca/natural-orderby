@@ -23,7 +23,7 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, [])).toBeLessThan(0);
+      expect(compareMultiple(recordA, recordB, [], 'en')).toBeLessThan(0);
     });
     it('should call compareValues() and return result without changing order (2)', () => {
       const recordA = {
@@ -46,7 +46,7 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, [])).toBeLessThan(0);
+      expect(compareMultiple(recordA, recordB, [], 'en')).toBeLessThan(0);
     });
     it('should call compareValues() and return result without changing order (3)', () => {
       const recordA = {
@@ -69,7 +69,7 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, [])).toBeGreaterThan(0);
+      expect(compareMultiple(recordA, recordB, [], 'en')).toBeGreaterThan(0);
     });
   });
   describe('ascending order', () => {
@@ -94,7 +94,7 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['asc'])).toBeLessThan(0);
+      expect(compareMultiple(recordA, recordB, ['asc'], 'en')).toBeLessThan(0);
     });
     it('should call compareValues() and return result without changing order (5)', () => {
       const recordA = {
@@ -117,7 +117,7 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['asc'])).toBeLessThan(0);
+      expect(compareMultiple(recordA, recordB, ['asc'], 'en')).toBeLessThan(0);
     });
     it('should call compareValues() and return result without changing order (6)', () => {
       const recordA = {
@@ -140,7 +140,9 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['asc'])).toBeGreaterThan(0);
+      expect(compareMultiple(recordA, recordB, ['asc'], 'en')).toBeGreaterThan(
+        0,
+      );
     });
   });
   describe('descending order', () => {
@@ -165,7 +167,9 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['desc'])).toBeGreaterThan(0);
+      expect(compareMultiple(recordA, recordB, ['desc'], 'en')).toBeGreaterThan(
+        0,
+      );
     });
     it('should call compareValues() and return result without changing (8)', () => {
       const recordA = {
@@ -188,7 +192,7 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['desc'])).toBeLessThan(0);
+      expect(compareMultiple(recordA, recordB, ['desc'], 'en')).toBeLessThan(0);
     });
     it('should call compareValues() and return result changed to descending order (9)', () => {
       const recordA = {
@@ -211,7 +215,7 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['desc'])).toBeLessThan(0);
+      expect(compareMultiple(recordA, recordB, ['desc'], 'en')).toBeLessThan(0);
     });
   });
   describe('mixed order', () => {
@@ -244,9 +248,9 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['desc', 'asc'])).toBeLessThan(
-        0,
-      );
+      expect(
+        compareMultiple(recordA, recordB, ['desc', 'asc'], 'en'),
+      ).toBeLessThan(0);
     });
     it('should call compareValues() twice and return result without changing order (11)', () => {
       const recordA = {
@@ -277,9 +281,9 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['desc', 'asc'])).toBeLessThan(
-        0,
-      );
+      expect(
+        compareMultiple(recordA, recordB, ['desc', 'asc'], 'en'),
+      ).toBeLessThan(0);
     });
     it('should call compareValues() twice and return result without changing order (12)', () => {
       const recordA = {
@@ -311,7 +315,7 @@ describe('compareMultiple()', () => {
         ],
       };
       expect(
-        compareMultiple(recordA, recordB, ['asc', 'desc']),
+        compareMultiple(recordA, recordB, ['asc', 'desc'], 'en'),
       ).toBeGreaterThan(0);
     });
   });
@@ -346,9 +350,9 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, ['desc', order])).toBeLessThan(
-        0,
-      );
+      expect(
+        compareMultiple(recordA, recordB, ['desc', order], 'en'),
+      ).toBeLessThan(0);
       expect(order).toHaveBeenCalledTimes(1);
       expect(order).toHaveBeenCalledWith(
         recordA.values[1].value,
@@ -385,7 +389,9 @@ describe('compareMultiple()', () => {
           },
         ],
       };
-      expect(compareMultiple(recordA, recordB, [order, 'asc'])).toBeLessThan(0);
+      expect(
+        compareMultiple(recordA, recordB, [order, 'asc'], 'en'),
+      ).toBeLessThan(0);
       expect(order).toHaveBeenCalledTimes(1);
       expect(order).toHaveBeenCalledWith(
         recordA.values[0].value,

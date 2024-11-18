@@ -1,10 +1,11 @@
 import { compareValues } from './compareValues';
-import type { Order, MappedRecord } from '../types';
+import type { Order, MappedRecord, Locale } from '../types';
 
 export const compareMultiple = (
   recordA: MappedRecord,
   recordB: MappedRecord,
   orders: ReadonlyArray<Order>,
+  locale: Locale,
 ): number => {
   const { index: indexA, values: valuesA } = recordA;
   const { index: indexB, values: valuesB } = recordB;
@@ -18,7 +19,7 @@ export const compareMultiple = (
         return result;
       }
     } else {
-      const result = compareValues(valuesA[i], valuesB[i]);
+      const result = compareValues(valuesA[i], valuesB[i], locale);
       if (result) {
         return result * (order === 'desc' ? -1 : 1);
       }
