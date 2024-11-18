@@ -8,12 +8,14 @@ import type {
   Order,
   MappedCollection,
   IdentifierFn,
+  Locale,
 } from '../types';
 
 export const baseOrderBy = <T>(
   collection: ReadonlyArray<T>,
   identifiers: ReadonlyArray<Identifier<T>>,
   orders: ReadonlyArray<Order>,
+  locale: Locale,
 ): Array<T> => {
   const identifierFns: Array<IdentifierFn<T>> = identifiers.length
     ? identifiers.map(createIdentifierFn)
@@ -34,7 +36,7 @@ export const baseOrderBy = <T>(
 
   // iterate over values and compare values until a != b or last value reached
   mappedCollection.sort((recordA, recordB) =>
-    compareMultiple(recordA, recordB, orders),
+    compareMultiple(recordA, recordB, orders, locale),
   );
 
   return mappedCollection.map((element) =>
