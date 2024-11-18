@@ -59,7 +59,7 @@ jobs:
         run: yarn test
       - name: Publish code coverage report
         if: matrix.node == env.PRIMARY_NODE_VERSION && matrix.os == 'ubuntu-latest'
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage/**/lcov.info
