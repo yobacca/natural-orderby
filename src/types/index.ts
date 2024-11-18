@@ -7,13 +7,17 @@ export type Order = OrderEnum | CompareFn;
 export type CompareOptions =
   | {
       order?: OrderEnum;
+      locale?: Locale;
     }
   | OrderEnum
   | undefined;
 
 export type BaseCompareOptions = {
   order: Order;
+  locale: Locale;
 };
+
+export type Locale = string;
 
 export type IdentifierFn<T> = (value: T) => unknown;
 

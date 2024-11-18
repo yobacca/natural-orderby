@@ -3,11 +3,12 @@ import { getOptions } from '../getOptions';
 
 const defaultOptions: CompareOptions = {
   order: 'asc',
+  locale: 'en',
 };
 
 describe('getOptions()', () => {
   it('should return custom options, if argument is object', () => {
-    const customOptions: CompareOptions = { order: 'desc' };
+    const customOptions: CompareOptions = { order: 'desc', locale: 'de' };
     const options = getOptions(customOptions);
     const expected = customOptions;
     expect(options).toEqual(expected);
@@ -15,7 +16,7 @@ describe('getOptions()', () => {
   it('should return custom options, if argument is a string', () => {
     const customOptions = 'desc';
     const options = getOptions(customOptions);
-    const expected = { order: customOptions };
+    const expected = { ...defaultOptions, order: customOptions };
     expect(options).toEqual(expected);
   });
   it('should return default options, if argument is undefined', () => {
