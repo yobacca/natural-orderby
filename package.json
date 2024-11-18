@@ -1,6 +1,6 @@
 {
   "name": "natural-orderby",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Lightweight and performant natural sorting of arrays and collections by differentiating between unicode characters, numbers, dates, etc.",
   "sideEffects": false,
   "main": "./dist/main.js",
