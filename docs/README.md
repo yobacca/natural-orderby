@@ -144,6 +144,7 @@ orderBy<T>(
   collection: ReadonlyArray<T>,
   identifiers?: ReadonlyArray<Identifier<T>> | Identifier<T> | null,
   orders?: ReadonlyArray<Order> | Order | null
+  locale?: string
 ): Array<T>
 ```
 
@@ -156,13 +157,15 @@ orderBy<T>(
 
 `orderBy()` sorts the elements of an array by specified identifiers and the corresponding sort orders in a natural order and returns a new array containing the sorted elements.
 
-If `collection` is an array of primitives, `identifiers` may be unspecified. Otherwise, you should specify `identifiers` to sort by or `collection` will be returned unsorted. An identifier can beexpressed by:
+If `collection` is an array of primitives, `identifiers` may be unspecified. Otherwise, you should specify `identifiers` to sort by or `collection` will be returned unsorted. An identifier can be expressed by:
 
 - an index position, if `collection` is a nested array,
 - a property name, if `collection` is an array of objects,
 - a function which returns a particular value from an element of a nested array or an array of objects. This function will be invoked by passing one element of `collection`.
 
 If `orders` is unspecified, all values are sorted in ascending order. Otherwise, specify an order of `'desc'` for descending or `'asc'` for ascending sort order of corresponding values. You may also specify a compare function for an order, which will be invoked by two arguments: `(valueA, valueB)`. It must return a number representing the sort order.
+
+If you want to sort unicode strings according to a specific locale, please provide a string value for `locale` with a BCP 47 language tag. If the argument is unspecified, the host locale setting will be used.
 
 > Note: `orderBy()` always returns a new array, even if the original was already sorted.
 
@@ -339,16 +342,17 @@ Creates a compare function that defines the natural sort order and which may be 
 compare(options?: CompareOptions): CompareFn
 ```
 
-| Type             | Value                                                     |
-| :--------------- | :-------------------------------------------------------- |
-| `CompareOptions` | <code>{ order?: 'asc' &#124; 'desc' }</code>              |
-| `CompareFn`      | <code>(valueA: unknown, valueB: unknown) => number</code> |
+| Type             | Value                                                        |
+| :--------------- | :----------------------------------------------------------- |
+| `CompareOptions` | <code>{ order?: 'asc' &#124; 'desc', locale: string }</code> |
+| `CompareFn`      | <code>(valueA: unknown, valueB: unknown) => number</code>    |
 
 #### Description
 
 `compare()` returns a compare function that defines the natural sort order and which may be passed to [`Array.prototype.sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).
 
 If `options` or its property `order` is unspecified, values are sorted in ascending sort order. Otherwise, specify an order of `'desc'` for descending or `'asc'` for ascending sort order of values.
+If unicode strings should be ordered corresponding to a specific locale setting, specify the according value for the options property `locale`. It must be a string with a BCP 47 language tag.
 
 #### Examples
 
