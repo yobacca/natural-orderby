@@ -5,7 +5,7 @@ export const compareMultiple = (
   recordA: MappedRecord,
   recordB: MappedRecord,
   orders: ReadonlyArray<Order>,
-  locale: Locale,
+  locale?: Locale,
 ): number => {
   const { index: indexA, values: valuesA } = recordA;
   const { index: indexB, values: valuesB } = recordB;

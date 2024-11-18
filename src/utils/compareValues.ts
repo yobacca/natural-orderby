@@ -6,7 +6,7 @@ import type { MappedValueRecord, Locale } from '../types';
 export const compareValues = (
   valueA: MappedValueRecord,
   valueB: MappedValueRecord,
-  locale: Locale,
+  locale?: Locale,
 ): number => {
   if (valueA.value === valueB.value) {
     return 0;

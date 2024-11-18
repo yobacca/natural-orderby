@@ -16,11 +16,10 @@ describe('orderBy()', () => {
     const collection = ['Fred', 'barney', 'frank', 'Bob'];
     const identifiers = undefined;
     const orders = undefined;
-    const locale = undefined;
 
-    orderBy(collection, identifiers, orders, locale);
+    orderBy(collection, identifiers, orders);
     expect(baseOrderBy).toHaveBeenCalledTimes(1);
-    expect(baseOrderBy).toHaveBeenCalledWith(collection, [], [], 'en');
+    expect(baseOrderBy).toHaveBeenCalledWith(collection, [], [], undefined);
   });
   it('should call baseOrderBy() with provided collection, identifiers, orders and locale arguments', () => {
     const collection = ['Fred', 'barney', 'frank', 'Bob'];

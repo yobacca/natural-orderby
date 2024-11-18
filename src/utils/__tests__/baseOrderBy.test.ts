@@ -7,12 +7,12 @@ describe('baseOrderBy()', () => {
       it('should order elements ascending and case insensitive', () => {
         const origArray = ['Fred', 'barney', 'frank', 'Bob'];
         const sortArray = ['barney', 'Bob', 'frank', 'Fred'];
-        expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+        expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
       });
       it('should order elements descending and case insensitive', () => {
         const origArray = ['Fred', 'barney', 'frank', 'Bob'];
         const sortArray = ['Fred', 'frank', 'Bob', 'barney'];
-        expect(baseOrderBy(origArray, [], ['desc'], 'en')).toEqual(sortArray);
+        expect(baseOrderBy(origArray, [], ['desc'])).toEqual(sortArray);
       });
     });
 
@@ -21,28 +21,28 @@ describe('baseOrderBy()', () => {
         const origArray = ['a', 1];
         const sortArray = [1, 'a'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('number vs numeric string - should remain unchanged', () => {
         const origArray = ['1', 1];
         const sortArray = ['1', 1];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('float vs float strings', () => {
         const origArray = [0.3, '.2', '.5', 0.1];
         const sortArray = [0.1, '.2', 0.3, '.5'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('padding numeric string vs number', () => {
         const origArray = ['02', 3, 2, '01'];
         const sortArray = ['01', '02', 2, 3];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -106,7 +106,7 @@ describe('baseOrderBy()', () => {
         undefined,
       ];
       it('should sort all available data types properly', () => {
-        expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+        expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
       });
     });
 
@@ -199,7 +199,7 @@ describe('baseOrderBy()', () => {
           'U17',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('redundant alphanumerics', () => {
@@ -224,7 +224,7 @@ describe('baseOrderBy()', () => {
           'Newsstand stop, Position: 4',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('sort alphanumerics case insensitive', () => {
@@ -269,14 +269,14 @@ describe('baseOrderBy()', () => {
           'bbbb',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('numerics with leading zeros and prefixed by a character', () => {
         const origArray = ['A110', 'A100', 'A090', 'A200', 'A50'];
         const sortArray = ['A50', 'A090', 'A100', 'A110', 'A200'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('number first', () => {
@@ -311,7 +311,7 @@ describe('baseOrderBy()', () => {
           '33K',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('alphanumeric strings containing whitespace', () => {
@@ -332,7 +332,7 @@ describe('baseOrderBy()', () => {
           'imgz199',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('alphanumerics containing very large numbers', () => {
@@ -349,35 +349,35 @@ describe('baseOrderBy()', () => {
           'MySnmp 4234567891234567891234567891234567891234567891234567891234567891234567891234567891234567891234567891234567891234567891234567891234567',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('alphanumerics containing "." and "-"', () => {
         const origArray = ['bar.1-2', 'bar.1'];
         const sortArray = ['bar.1', 'bar.1-2'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('character string vs alphanumeric string', () => {
         const origArray = ['SomeString', 'SomeString 1'];
         const sortArray = ['SomeString', 'SomeString 1'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('numerics with unit', () => {
         const origArray = ['2.2 sec', '1.9 sec', '1.53 sec'];
         const sortArray = ['1.53 sec', '1.9 sec', '2.2 sec'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('numerics with unit without whitespace', () => {
         const origArray = ['2.2sec', '1.9sec', '1.53sec'];
         const sortArray = ['1.53sec', '1.9sec', '2.2sec'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -397,7 +397,7 @@ describe('baseOrderBy()', () => {
           '10/12/2008',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('more similar dates', () => {
@@ -414,7 +414,7 @@ describe('baseOrderBy()', () => {
           '01/10/2008',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('JavaScript toString(), different timezones', () => {
@@ -429,7 +429,7 @@ describe('baseOrderBy()', () => {
           'Wed Jan 01 2010 00:00:00 GMT-0800 (Pacific Standard Time)',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('Date.toString(), Date.toLocaleString()', () => {
@@ -444,7 +444,7 @@ describe('baseOrderBy()', () => {
           'Monday, August 2, 2010',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('Date.toUTCString()', () => {
@@ -459,7 +459,7 @@ describe('baseOrderBy()', () => {
           'Mon, 3 May 2010 17:45:30 GMT',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('custom date formats', () => {
@@ -476,7 +476,7 @@ describe('baseOrderBy()', () => {
           'Monday, August 2, 2010 1:45 PM',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('more custom date formats', () => {
@@ -493,7 +493,7 @@ describe('baseOrderBy()', () => {
           'Monday, August 2, 2010 1:45:01 PM',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('even more custom date formats', () => {
@@ -508,7 +508,7 @@ describe('baseOrderBy()', () => {
           '2/15/2009 1:45 PM',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('ISO8601 Dates', () => {
@@ -525,7 +525,7 @@ describe('baseOrderBy()', () => {
           '2010-06-15T13:45:30',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('ISO8601-ish YYYY-MM-DD hh:mm:ss - which does not parse into a Date instance', () => {
@@ -540,7 +540,7 @@ describe('baseOrderBy()', () => {
           '2010-06-15 13:45:30',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('RFC1123 testing different timezones', () => {
@@ -555,14 +555,14 @@ describe('baseOrderBy()', () => {
           'Mon, 15 Jun 2009 20:45:30 PDT',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('unix epoch, Date.getTime()', () => {
         const origArray = ['1245098730000', '14330728000', '1245098728000'];
         const sortArray = ['14330728000', '1245098728000', '1245098730000'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('mixed Date types', () => {
@@ -579,7 +579,7 @@ describe('baseOrderBy()', () => {
           '2015-01-01',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -589,14 +589,14 @@ describe('baseOrderBy()', () => {
         const origArray = ['1.0.2', '1.0.1', '1.0.0', '1.0.9'];
         const sortArray = ['1.0.0', '1.0.1', '1.0.2', '1.0.9'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('more version numbers', () => {
         const origArray = ['1.1.100', '1.1.1', '1.1.10', '1.1.54'];
         const sortArray = ['1.1.1', '1.1.10', '1.1.54', '1.1.100'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('even more version numbers', () => {
@@ -617,14 +617,14 @@ describe('baseOrderBy()', () => {
           '2.0.1',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('multi-digit branch release', () => {
         const origArray = ['1.0.03', '1.0.003', '1.0.002', '1.0.0001'];
         const sortArray = ['1.0.0001', '1.0.002', '1.0.003', '1.0.03'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('more close version numbers', () => {
@@ -647,7 +647,7 @@ describe('baseOrderBy()', () => {
           '2.1.2',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('string first', () => {
@@ -666,14 +666,14 @@ describe('baseOrderBy()', () => {
           'myrelease-1.2.3',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('version numbers containing float-like numbers', () => {
         const origArray = ['v1.100', 'v1.1', 'v1.10', 'v1.54'];
         const sortArray = ['v1.1', 'v1.10', 'v1.54', 'v1.100'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -683,49 +683,49 @@ describe('baseOrderBy()', () => {
         const origArray = ['10', 9, 2, '1', '4'];
         const sortArray = ['1', 2, '4', 9, '10'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('0 left-padded numbers', () => {
         const origArray = ['0001', '002', '001'];
         const sortArray = ['0001', '001', '002'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('0 left-padded numbers and regular numbers', () => {
         const origArray = [2, 1, '1', '0001', '002', '02', '001'];
         const sortArray = [1, '1', '0001', '001', 2, '002', '02'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('decimal string vs decimal, different precision', () => {
         const origArray = ['10.0401', 10.022, 10.042, '10.021999'];
         const sortArray = ['10.021999', 10.022, '10.0401', 10.042];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('decimal string vs decimal, same precision', () => {
         const origArray = ['10.04', 10.02, 10.03, '10.01'];
         const sortArray = ['10.01', 10.02, 10.03, '10.04'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('float/decimal with "F" or "D" notation', () => {
         const origArray = ['10.04f', '10.039F', '10.038d', '10.037D'];
         const sortArray = ['10.037D', '10.038d', '10.039F', '10.04f'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('not foat/decimal notation', () => {
         const origArray = ['10.004Z', '10.039T', '10.038ooo', '10.037g'];
         const sortArray = ['10.004Z', '10.037g', '10.038ooo', '10.039T'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('scientific notation', () => {
@@ -744,21 +744,21 @@ describe('baseOrderBy()', () => {
           '1.52e15',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('negative numbers as strings', () => {
         const origArray = ['-1', '-2', '4', '-3', '0', '-5'];
         const sortArray = ['-5', '-3', '-2', '-1', '0', '4'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('numerics with prepended zero', () => {
         const origArray = ['1', '02', '3'];
         const sortArray = ['1', '02', '3'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('numerics with prepended zero and optional trailing characters', () => {
@@ -785,28 +785,28 @@ describe('baseOrderBy()', () => {
           '13',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('negative numbers as strings - mixed input type, string + numeric', () => {
         const origArray = [-1, '-2', 4, -3, '0', '-5'];
         const sortArray = ['-5', -3, '-2', -1, '0', 4];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('negative floats - all numeric', () => {
         const origArray = [-2.01, -2.1, 4.144, 4.1, -2.001, -5];
         const sortArray = [-5, -2.1, -2.01, -2.001, 4.1, 4.144];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('numerics with custom compare function', () => {
         const origArray = [-2.01, -2.1, 4.144, 4.1, -2.001, -5];
         const sortArray = [-5, -2.1, -2.01, -2.001, 4.1, 4.144];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -851,7 +851,7 @@ describe('baseOrderBy()', () => {
         '192.168.1.1',
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-        expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+        expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
       });
     });
 
@@ -860,7 +860,7 @@ describe('baseOrderBy()', () => {
         const origArray = ['img12.png', 'img10.png', 'img2.png', 'img1.png'];
         const sortArray = ['img1.png', 'img2.png', 'img10.png', 'img12.png'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('complex filenames', () => {
@@ -885,7 +885,7 @@ describe('baseOrderBy()', () => {
           'asset_47103.jpg',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('complex filenames ordered by extension and name', () => {
@@ -926,7 +926,7 @@ describe('baseOrderBy()', () => {
           './system/kernel/js/02_my.desktop.js',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -935,7 +935,7 @@ describe('baseOrderBy()', () => {
       const origArray = ['alpha', ' 1', '  3', ' 2', 0];
       const sortArray = [0, ' 1', ' 2', '  3', 'alpha'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-        expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+        expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
       });
     });
 
@@ -944,14 +944,14 @@ describe('baseOrderBy()', () => {
         const origArray = ['10023', '999', '', 2, 5.663, 5.6629];
         const sortArray = ['', 2, 5.6629, 5.663, '999', '10023'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('zero as digits and strings and empty strings', () => {
         const origArray = [1, 0, '0', ''];
         const sortArray = ['', 0, '0', 1];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -961,14 +961,14 @@ describe('baseOrderBy()', () => {
         const origArray = ['0xA', '0x9', '0x99'];
         const sortArray = ['0x9', '0xA', '0x99'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('fake hex numbers', () => {
         const origArray = ['0xZZ', '0xVVV', '0xVEV', '0xUU'];
         const sortArray = ['0xUU', '0xVEV', '0xVVV', '0xZZ'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -978,7 +978,7 @@ describe('baseOrderBy()', () => {
         const origArray = ['\u0044', '\u0055', '\u0054', '\u0043'];
         const sortArray = ['\u0043', '\u0044', '\u0054', '\u0055'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('latin-1 supplement, default locale', () => {
@@ -1003,7 +1003,7 @@ describe('baseOrderBy()', () => {
           '\u007a',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('Sorting umlauts characters \xC4, \xD6, \xDC', () => {
@@ -1026,21 +1026,21 @@ describe('baseOrderBy()', () => {
           '\xDCxk\xFCll',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('localeCompare and equal chunks', () => {
         const origArray = ['drüben', 'hüben', 'wie', 'drüben', 'hüben'];
         const sortArray = ['drüben', 'drüben', 'hüben', 'hüben', 'wie'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('diacritics', () => {
         const origArray = ['b', 'd', 'f', 'A', 'Cé', 'E'];
         const sortArray = ['A', 'b', 'Cé', 'd', 'E', 'f'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('considers locale option', () => {
@@ -1083,14 +1083,14 @@ describe('baseOrderBy()', () => {
           undefined,
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('alphanumeric sparse array', () => {
         const origArray = [2, 10, 1, 'azd', undefined, 'asd'];
         const sortArray = [1, 2, 10, 'asd', 'azd', undefined];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -1100,14 +1100,14 @@ describe('baseOrderBy()', () => {
         const origArray = ['A', 'b', 'C', 'd', 'E', 'f'];
         const sortArray = ['A', 'b', 'C', 'd', 'E', 'f'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('case insensitive un-sorted array', () => {
         const origArray = ['A', 'C', 'E', 'b', 'd', 'f'];
         const sortArray = ['A', 'b', 'C', 'd', 'E', 'f'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -1127,7 +1127,7 @@ describe('baseOrderBy()', () => {
           'ignore leading spaces: 2-2',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('Ignoring multiple adjacent spaces (m.a.s)', () => {
@@ -1144,7 +1144,7 @@ describe('baseOrderBy()', () => {
           'ignore m.a.s spaces: 2-2',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('Equivalent whitespace characters', () => {
@@ -1165,7 +1165,7 @@ describe('baseOrderBy()', () => {
           'Equiv. spaces: 3-3',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('Case Indepenent sort', () => {
@@ -1182,7 +1182,7 @@ describe('baseOrderBy()', () => {
           'cASE INDEPENENT: 3-2',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('Numeric fields as numerics', () => {
@@ -1199,7 +1199,7 @@ describe('baseOrderBy()', () => {
           'foo1000bar99baz10.txt',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('Title sorts', () => {
@@ -1216,7 +1216,7 @@ describe('baseOrderBy()', () => {
           'Wanda',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
       describe('Equivalent accented characters (and case) case insensitive)', () => {
@@ -1233,7 +1233,7 @@ describe('baseOrderBy()', () => {
           'Equiv. \xfd accents: 2-2',
         ];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [], [], 'en')).toEqual(sortArray);
+          expect(baseOrderBy(origArray, [], [])).toEqual(sortArray);
         });
       });
     });
@@ -1243,7 +1243,7 @@ describe('baseOrderBy()', () => {
         const origArray = ['f', 'e', 'd', 'c', 'b', 'a'];
         const sortArray = ['f', 'e', 'd', 'c', 'b', 'a'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [(v) => v], ['desc'], 'en')).toEqual(
+          expect(baseOrderBy(origArray, [(v) => v], ['desc'])).toEqual(
             sortArray,
           );
         });
@@ -1252,7 +1252,7 @@ describe('baseOrderBy()', () => {
         const origArray = ['a', 'c', 'e', 'b', 'd', 'f'];
         const sortArray = ['f', 'e', 'd', 'c', 'b', 'a'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [(v) => v], ['desc'], 'en')).toEqual(
+          expect(baseOrderBy(origArray, [(v) => v], ['desc'])).toEqual(
             sortArray,
           );
         });
@@ -1261,7 +1261,7 @@ describe('baseOrderBy()', () => {
         const origArray = ['a', 'c', 'e', 'b', 'd', 'f'];
         const sortArray = ['a', 'b', 'c', 'd', 'e', 'f'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [(v) => v], ['asc'], 'en')).toEqual(
+          expect(baseOrderBy(origArray, [(v) => v], ['asc'])).toEqual(
             sortArray,
           );
         });
@@ -1270,7 +1270,7 @@ describe('baseOrderBy()', () => {
         const origArray = ['a', 'c', 'f', 'd', 'e', 'b'];
         const sortArray = ['a', 'b', 'c', 'd', 'e', 'f'];
         it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
-          expect(baseOrderBy(origArray, [(v) => v], ['asc'], 'en')).toEqual(
+          expect(baseOrderBy(origArray, [(v) => v], ['asc'])).toEqual(
             sortArray,
           );
         });
@@ -1292,7 +1292,7 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
         { user: 'Fred', age: 48 },
       ];
-      expect(baseOrderBy(origArray, [(value) => value.user], [], 'en')).toEqual(
+      expect(baseOrderBy(origArray, [(value) => value.user], [])).toEqual(
         sortArray,
       );
     });
@@ -1309,9 +1309,9 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
         { user: 'Fred', age: 48 },
       ];
-      expect(
-        baseOrderBy(origArray, [(v) => v.user, (v) => v.age], [], 'en'),
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, [(v) => v.user, (v) => v.age], [])).toEqual(
+        sortArray,
+      );
     });
     it('should order by user ascending (default) and age ascending (default)', () => {
       const origArray = [
@@ -1326,9 +1326,7 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
         { user: 'fred', age: 48 },
       ];
-      expect(baseOrderBy(origArray, ['user', 'age'], [], 'en')).toEqual(
-        sortArray,
-      );
+      expect(baseOrderBy(origArray, ['user', 'age'], [])).toEqual(sortArray);
     });
     it('should order by user ascending (default) and age ascending', () => {
       const origArray = [
@@ -1343,7 +1341,7 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
         { user: 'fred', age: 48 },
       ];
-      expect(baseOrderBy(origArray, ['user', 'age'], ['asc'], 'en')).toEqual(
+      expect(baseOrderBy(origArray, ['user', 'age'], ['asc'])).toEqual(
         sortArray,
       );
     });
@@ -1360,9 +1358,9 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 48 },
         { user: 'fred', age: 40 },
       ];
-      expect(
-        baseOrderBy(origArray, ['user', 'age'], ['asc', 'desc'], 'en'),
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, ['user', 'age'], ['asc', 'desc'])).toEqual(
+        sortArray,
+      );
     });
     it('should order by user ascending and age ascending (default)', () => {
       const origArray = [
@@ -1377,9 +1375,9 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
         { user: 'fred', age: 48 },
       ];
-      expect(
-        baseOrderBy(origArray, [(v) => v.user, (v) => v.age], [], 'en'),
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, [(v) => v.user, (v) => v.age], [])).toEqual(
+        sortArray,
+      );
     });
     it('should order by user descending (default) and age ascending (default) case insensitive', () => {
       const origArray = [
@@ -1416,9 +1414,9 @@ describe('baseOrderBy()', () => {
         { user: 'barney', age: 34 },
         { user: 'barney', age: 36 },
       ];
-      expect(
-        baseOrderBy(origArray, ['user', 'age'], ['desc', 'asc'], 'en'),
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, ['user', 'age'], ['desc', 'asc'])).toEqual(
+        sortArray,
+      );
     });
     it('should order by user ascending and age ascending', () => {
       const origArray = [
@@ -1433,9 +1431,9 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
         { user: 'fred', age: 48 },
       ];
-      expect(
-        baseOrderBy(origArray, ['user', 'age'], ['asc', 'asc'], 'en'),
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, ['user', 'age'], ['asc', 'asc'])).toEqual(
+        sortArray,
+      );
     });
     it('should order by user ascending and age descending', () => {
       const origArray = [
@@ -1452,9 +1450,9 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
         { user: 'wilma', age: 32 },
       ];
-      expect(
-        baseOrderBy(origArray, ['user', 'age'], ['asc', 'desc'], 'en'),
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, ['user', 'age'], ['asc', 'desc'])).toEqual(
+        sortArray,
+      );
     });
     it('should order by user descending and age ascending', () => {
       const origArray = [
@@ -1469,9 +1467,9 @@ describe('baseOrderBy()', () => {
         { user: 'barney', age: 34 },
         { user: 'barney', age: 36 },
       ];
-      expect(
-        baseOrderBy(origArray, ['user', 'age'], ['desc', 'asc'], 'en'),
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, ['user', 'age'], ['desc', 'asc'])).toEqual(
+        sortArray,
+      );
     });
     it('should order by user ascending (default) and age ascending (default) using functional identifiers', () => {
       const origArray = [
@@ -1486,9 +1484,9 @@ describe('baseOrderBy()', () => {
         { user: 'fred', age: 40 },
         { user: 'fred', age: 48 },
       ];
-      expect(
-        baseOrderBy(origArray, [(v) => v.user, (v) => v.age], [], 'en'),
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, [(v) => v.user, (v) => v.age], [])).toEqual(
+        sortArray,
+      );
     });
     it('should order by datetime descending and ip ascending using functional identifiers', () => {
       const origArray = [
@@ -1600,7 +1598,7 @@ describe('baseOrderBy()', () => {
         ['fred', 40],
         ['Fred', 48],
       ];
-      expect(baseOrderBy(origArray, [0, 1], [], 'en')).toEqual(sortArray);
+      expect(baseOrderBy(origArray, [0, 1], [])).toEqual(sortArray);
     });
     it('should order by first element ascending (default) and second element ascending (default)', () => {
       const origArray = [
@@ -1615,7 +1613,7 @@ describe('baseOrderBy()', () => {
         ['fred', 40],
         ['fred', 48],
       ];
-      expect(baseOrderBy(origArray, [0, 1], [], 'en')).toEqual(sortArray);
+      expect(baseOrderBy(origArray, [0, 1], [])).toEqual(sortArray);
     });
     it('should order by first element ascending (default) and second element ascending', () => {
       const origArray = [
@@ -1630,9 +1628,7 @@ describe('baseOrderBy()', () => {
         ['fred', 40],
         ['fred', 48],
       ];
-      expect(baseOrderBy(origArray, [0, 1], ['asc', 'asc'], 'en')).toEqual(
-        sortArray,
-      );
+      expect(baseOrderBy(origArray, [0, 1], ['asc', 'asc'])).toEqual(sortArray);
     });
     it('should order by first element ascending (default) and second element descending', () => {
       const origArray = [
@@ -1647,7 +1643,7 @@ describe('baseOrderBy()', () => {
         ['fred', 48],
         ['fred', 40],
       ];
-      expect(baseOrderBy(origArray, [0, 1], ['asc', 'desc'], 'en')).toEqual(
+      expect(baseOrderBy(origArray, [0, 1], ['asc', 'desc'])).toEqual(
         sortArray,
       );
     });
@@ -1665,7 +1661,7 @@ describe('baseOrderBy()', () => {
         ['fred', 48],
       ];
       expect(
-        baseOrderBy(origArray, [(v) => v[0], (v) => v[1]], ['asc'], 'en'),
+        baseOrderBy(origArray, [(v) => v[0], (v) => v[1]], ['asc']),
       ).toEqual(sortArray);
     });
     it('should order by first element descending and second element ascending (default)', () => {
@@ -1681,7 +1677,7 @@ describe('baseOrderBy()', () => {
         ['barney', 34],
         ['barney', 36],
       ];
-      expect(baseOrderBy(origArray, [0, 1], ['desc'], 'en')).toEqual(sortArray);
+      expect(baseOrderBy(origArray, [0, 1], ['desc'])).toEqual(sortArray);
     });
     it('should order by first element ascending and second element ascending', () => {
       const origArray = [
@@ -1696,9 +1692,7 @@ describe('baseOrderBy()', () => {
         ['fred', 40],
         ['fred', 48],
       ];
-      expect(baseOrderBy(origArray, [0, 1], ['asc', 'asc'], 'en')).toEqual(
-        sortArray,
-      );
+      expect(baseOrderBy(origArray, [0, 1], ['asc', 'asc'])).toEqual(sortArray);
     });
     it('should order by first element ascending and second element descending', () => {
       const origArray = [
@@ -1715,7 +1709,7 @@ describe('baseOrderBy()', () => {
         ['fred', 40],
         ['wilma', 32],
       ];
-      expect(baseOrderBy(origArray, [0, 1], ['asc', 'desc'], 'en')).toEqual(
+      expect(baseOrderBy(origArray, [0, 1], ['asc', 'desc'])).toEqual(
         sortArray,
       );
     });
@@ -1732,7 +1726,7 @@ describe('baseOrderBy()', () => {
         ['barney', 34],
         ['barney', 36],
       ];
-      expect(baseOrderBy(origArray, [0, 1], ['desc', 'asc'], 'en')).toEqual(
+      expect(baseOrderBy(origArray, [0, 1], ['desc', 'asc'])).toEqual(
         sortArray,
       );
     });
@@ -1749,9 +1743,9 @@ describe('baseOrderBy()', () => {
         ['fred', 40],
         ['fred', 48],
       ];
-      expect(
-        baseOrderBy(origArray, [(v) => v[0], (v) => v[1]], [], 'en'),
-      ).toEqual(sortArray);
+      expect(baseOrderBy(origArray, [(v) => v[0], (v) => v[1]], [])).toEqual(
+        sortArray,
+      );
     });
   });
 });
