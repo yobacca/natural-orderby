@@ -31,6 +31,11 @@ describe('createChunks()', () => {
     const expected = ['abc'];
     expect(createChunks(value)).toEqual(expected);
   });
+  it('should return ["img", ".", "png"]', () => {
+    const value = 'img.png';
+    const expected = ['img', '.', 'png'];
+    expect(createChunks(value)).toEqual(expected);
+  });
   it('should return ["2018", "-", "06", "-", "12", "T", "22", ":", "25", ":", "00", ".", "000", "Z"]', () => {
     const value = '2018-06-12T22:25:00.000Z';
     const expected = [
