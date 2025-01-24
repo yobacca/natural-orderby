@@ -1,4 +1,4 @@
-import type { Identifier, Order } from '../types';
+import type { Identifier, Order, Locale } from '../types';
 import { baseOrderBy } from '../utils/baseOrderBy';
 import { getIdentifiers } from '../utils/getIdentifiers';
 import { getOrders } from '../utils/getOrders';
@@ -12,7 +12,8 @@ import { getOrders } from '../utils/getOrders';
 export function orderBy<T>(
   collection: ReadonlyArray<T>,
   identifiers?: ReadonlyArray<Identifier<T>> | Identifier<T> | null,
-  orders?: ReadonlyArray<Order> | Order | null
+  orders?: ReadonlyArray<Order> | Order | null,
+  locale?: Locale,
 ): Array<T> {
   if (!collection || !Array.isArray(collection)) {
     return [];
@@ -21,5 +22,5 @@ export function orderBy<T>(
   const validatedIdentifiers = getIdentifiers(identifiers);
   const validatedOrders = getOrders(orders);
 
-  return baseOrderBy(collection, validatedIdentifiers, validatedOrders);
+  return baseOrderBy(collection, validatedIdentifiers, validatedOrders, locale);
 }

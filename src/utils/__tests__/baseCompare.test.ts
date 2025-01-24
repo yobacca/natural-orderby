@@ -20,7 +20,7 @@ describe('baseCompare()', () => {
       const sortArray = [1, 'a'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -29,7 +29,7 @@ describe('baseCompare()', () => {
       const sortArray = ['1', 1];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -38,7 +38,7 @@ describe('baseCompare()', () => {
       const sortArray = [0.1, '.2', 0.3, '.5'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -47,7 +47,7 @@ describe('baseCompare()', () => {
       const sortArray = ['01', '02', 2, 3];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -143,7 +143,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -170,7 +170,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -179,7 +179,7 @@ describe('baseCompare()', () => {
       const sortArray = ['9', 'aa', 'AA', 'Aa', 'aA', 'BB', 'bB', 'bbbb'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -188,7 +188,7 @@ describe('baseCompare()', () => {
       const sortArray = ['A50', 'A090', 'A100', 'A110', 'A200'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -225,7 +225,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -248,7 +248,16 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
+        );
+      });
+    });
+    describe('numbers with separators', () => {
+      const origArray = ['100', '20', '10_000', '5_000', '2_000_000'];
+      const sortArray = ['20', '100', '5_000', '10_000', '2_000_000'];
+      it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
+        expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
+          sortArray,
         );
       });
     });
@@ -267,7 +276,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -276,7 +285,7 @@ describe('baseCompare()', () => {
       const sortArray = ['bar.1', 'bar.1-2'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -285,7 +294,7 @@ describe('baseCompare()', () => {
       const sortArray = ['SomeString', 'SomeString 1'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -294,7 +303,7 @@ describe('baseCompare()', () => {
       const sortArray = ['1.53 sec', '1.9 sec', '2.2 sec'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -303,7 +312,7 @@ describe('baseCompare()', () => {
       const sortArray = ['1.53sec', '1.9sec', '2.2sec'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -325,7 +334,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -344,7 +353,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -361,7 +370,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -378,7 +387,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -395,7 +404,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -414,7 +423,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -433,7 +442,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -450,7 +459,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -469,7 +478,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -486,7 +495,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -503,7 +512,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -512,7 +521,7 @@ describe('baseCompare()', () => {
       const sortArray = ['14330728000', '1245098728000', '1245098730000'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -531,7 +540,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -543,7 +552,7 @@ describe('baseCompare()', () => {
       const sortArray = ['1.0.0', '1.0.1', '1.0.2', '1.0.9'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -552,7 +561,7 @@ describe('baseCompare()', () => {
       const sortArray = ['1.1.1', '1.1.10', '1.1.54', '1.1.100'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -575,7 +584,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -584,7 +593,7 @@ describe('baseCompare()', () => {
       const sortArray = ['1.0.0001', '1.0.002', '1.0.003', '1.0.03'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -609,7 +618,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -630,7 +639,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -639,7 +648,7 @@ describe('baseCompare()', () => {
       const sortArray = ['v1.1', 'v1.10', 'v1.54', 'v1.100'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -651,7 +660,7 @@ describe('baseCompare()', () => {
       const sortArray = ['1', 2, '4', 9, '10'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -660,7 +669,7 @@ describe('baseCompare()', () => {
       const sortArray = ['0001', '001', '002'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -669,7 +678,7 @@ describe('baseCompare()', () => {
       const sortArray = [1, '1', '0001', '001', 2, '002', '02'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -678,7 +687,7 @@ describe('baseCompare()', () => {
       const sortArray = ['10.021999', 10.022, '10.0401', 10.042];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -687,7 +696,7 @@ describe('baseCompare()', () => {
       const sortArray = ['10.01', 10.02, 10.03, '10.04'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -696,7 +705,7 @@ describe('baseCompare()', () => {
       const sortArray = ['10.037D', '10.038d', '10.039F', '10.04f'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -705,7 +714,7 @@ describe('baseCompare()', () => {
       const sortArray = ['10.004Z', '10.037g', '10.038ooo', '10.039T'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -726,7 +735,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -735,7 +744,7 @@ describe('baseCompare()', () => {
       const sortArray = ['-5', '-3', '-2', '-1', '0', '4'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -744,7 +753,7 @@ describe('baseCompare()', () => {
       const sortArray = ['1', '02', '3'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -773,7 +782,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -782,7 +791,7 @@ describe('baseCompare()', () => {
       const sortArray = ['-5', -3, '-2', -1, '0', 4];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -791,7 +800,7 @@ describe('baseCompare()', () => {
       const sortArray = [-5, -2.1, -2.01, -2.001, 4.1, 4.144];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -835,7 +844,7 @@ describe('baseCompare()', () => {
       const sortArray = ['img.png', 'img1.png', 'img2.png', 'img10.png', 'img10hd.png', 'img12.png'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -862,7 +871,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -879,7 +888,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -899,7 +908,7 @@ describe('baseCompare()', () => {
       const sortArray = ['', 2, 5.6629, 5.663, '999', '10023'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -908,7 +917,7 @@ describe('baseCompare()', () => {
       const sortArray = ['', 0, '0', 1];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -920,7 +929,7 @@ describe('baseCompare()', () => {
       const sortArray = ['0x9', '0xA', '0x99'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -929,7 +938,7 @@ describe('baseCompare()', () => {
       const sortArray = ['0xUU', '0xVEV', '0xVVV', '0xZZ'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -941,7 +950,7 @@ describe('baseCompare()', () => {
       const sortArray = ['\u0043', '\u0044', '\u0054', '\u0055'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -968,7 +977,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -993,7 +1002,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1002,7 +1011,7 @@ describe('baseCompare()', () => {
       const sortArray = ['drüben', 'drüben', 'hüben', 'hüben', 'wie'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1011,8 +1020,18 @@ describe('baseCompare()', () => {
       const sortArray = ['A', 'b', 'Cé', 'd', 'E', 'f'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
+      });
+    });
+    describe('considers locale option', () => {
+      const compareDe = baseCompare({ order: 'asc', locale: 'de' });
+      const compareSv = baseCompare({ order: 'asc', locale: 'sv' });
+      it('should work with german locale', () => {
+        expect(compareDe('ä', 'z')).toBe(-1);
+      });
+      it('should work with swedish locale', () => {
+        expect(compareSv('ä', 'z')).toBe(1);
       });
     });
   });
@@ -1045,7 +1064,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1054,7 +1073,7 @@ describe('baseCompare()', () => {
       const sortArray = [1, 2, 10, 'asd', 'azd', undefined];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1066,7 +1085,7 @@ describe('baseCompare()', () => {
       const sortArray = ['A', 'b', 'C', 'd', 'E', 'f'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1075,7 +1094,7 @@ describe('baseCompare()', () => {
       const sortArray = ['A', 'b', 'C', 'd', 'E', 'f'];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1097,7 +1116,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1116,7 +1135,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1139,7 +1158,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1158,7 +1177,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1177,7 +1196,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1196,7 +1215,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });
@@ -1215,7 +1234,7 @@ describe('baseCompare()', () => {
       ];
       it(`${origArray.toString()} should be returned as ${sortArray.toString()}`, () => {
         expect(origArray.sort(baseCompare({ order: 'asc' }))).toEqual(
-          sortArray
+          sortArray,
         );
       });
     });

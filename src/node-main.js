@@ -1,4 +1,4 @@
-/* eslint-env node */
+/* eslint-disable n/no-missing-require */
 
 if (process.env.NODE_ENV === 'production') {
   module.exports = require('./umd/natural-orderby.production.min.js');

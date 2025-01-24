@@ -11,7 +11,7 @@ describe('isFunction()', () => {
     expect(
       isFunction((): void => {
         return;
-      })
+      }),
     ).toBe(true);
   });
   it('should return false', () => {

@@ -14,7 +14,7 @@ describe('isSymbol()', () => {
     expect(
       isSymbol((): void => {
         return;
-      })
+      }),
     ).toBe(false);
     expect(isSymbol(null)).toBe(false);
     expect(isSymbol(undefined)).toBe(false);

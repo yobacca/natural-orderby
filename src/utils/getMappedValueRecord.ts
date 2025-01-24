@@ -1,4 +1,3 @@
-import type { MappedValueRecord } from '../types';
 import { createChunkMaps } from './createChunkMaps';
 import { isFunction } from './isFunction';
 import { isNaN } from './isNaN';
@@ -8,6 +7,7 @@ import { isSymbol } from './isSymbol';
 import { isUndefined } from './isUndefined';
 import { numberify } from './numberify';
 import { stringify } from './stringify';
+import type { MappedValueRecord } from '../types';
 
 export const getMappedValueRecord = (value: unknown): MappedValueRecord => {
   if (
@@ -21,7 +21,7 @@ export const getMappedValueRecord = (value: unknown): MappedValueRecord => {
     const stringValue = stringify(value);
     const parsedNumber = numberify(stringValue);
     const chunks = createChunkMaps(
-      parsedNumber ? `${parsedNumber}` : stringValue
+      parsedNumber ? `${parsedNumber}` : stringValue,
     );
     return {
       parsedNumber,

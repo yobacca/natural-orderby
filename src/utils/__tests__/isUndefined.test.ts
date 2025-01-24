@@ -15,7 +15,7 @@ describe('isUndefined()', () => {
     expect(
       isUndefined((): void => {
         return;
-      })
+      }),
     ).toBe(false);
     expect(isUndefined(null)).toBe(false);
   });
