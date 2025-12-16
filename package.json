@@ -71,7 +71,7 @@
     "@babel/preset-typescript": "^7.17.12",
     "@changesets/cli": "^2.25.2",
     "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/config-conventional": "^20.2.0",
     "@commitlint/types": "^19.0.3",
     "@rollup/plugin-babel": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
